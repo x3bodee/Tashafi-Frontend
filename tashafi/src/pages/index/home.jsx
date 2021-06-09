@@ -7,7 +7,8 @@ export default function home() {
     return (
         <>
         <NavBar/>
-        <Main/>  
+        <Main/> 
+         
         </>
     )
 }
