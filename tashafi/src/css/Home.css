@@ -1,0 +1,20 @@
+.container__home{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+
+}
+.container__home > *{
+    width:50vw;
+    margin: 20px;
+    padding-top: 25px;
+}
+
+
+.right img{
+    height: 100%;
+    width: 100%;
+}
