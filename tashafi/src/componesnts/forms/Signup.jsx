@@ -29,8 +29,8 @@ const Signup = () => {
                             <Form.Group controlId="exampleForm.ControlSelect1">
                               <Form.Label>Gender</Form.Label>
                                   <Form.Control as="select">
-                                   <option>Female</option>
-                                   <option>Male</option>
+                                   <option  value="female">Female</option>
+                                   <option value="male" >Male</option>
 
                                   </Form.Control>
                                   </Form.Group>
