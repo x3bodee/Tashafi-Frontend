@@ -26,7 +26,7 @@
  padding-left: 15%;
 
 }
-.left h2 #span{
+.left h2 span {
 color:#C55FFC;
 text-transform: capitalize;
 }
@@ -42,6 +42,8 @@ text-align: center;
     outline: none;
     border: none;
 }
+
+
 
 
 
