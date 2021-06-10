@@ -18,3 +18,19 @@
     height: 100%;
     width: 100%;
 }
+
+.left h2{
+    color:#323E42;
+    font-size: 60px;
+    text-align: left;
+    padding-left: 5%;
+   }
+   .left h2 #span{
+   color:#C55FFC;
+   text-transform: capitalize;
+   }
+   .search {
+   padding-top: 5%;
+   padding-left: 5%;
+   width: 60%;
+   }
