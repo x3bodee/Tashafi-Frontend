@@ -1,0 +1,23 @@
+* {
+	
+	box-sizing: border-box;
+}
+
+
+  button {
+	color: #fff;
+	border: 1px solid #a9a9a9 ;
+    background-color: #C55FFC !important;
+    border-color: #C55FFC !important;
+	border-radius: 5px;
+	width: 300;
+	padding: 10px;
+	
+  }
+
+  .div{
+	  padding-top: 10%;
+  }
+  .h2{
+	  padding-bottom: 4%;
+  }
