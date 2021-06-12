@@ -1,0 +1,21 @@
+.btn-primary {
+    color: #fff;
+    background-color: #C55FFC !important;
+    border-color: #ececec !important;
+}
+
+.centered{
+   
+    display: flex;
+    height: 100vh; 
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-right: 38%;
+    padding-left: 38%;
+
+}
+.h2{
+    padding-bottom: 12%;
+}
