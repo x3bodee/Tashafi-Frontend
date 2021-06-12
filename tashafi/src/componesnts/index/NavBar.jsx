@@ -4,7 +4,7 @@ import { Navbar , Container , Nav} from 'react-bootstrap';
 export default function NavBar() {
     return (
         <>
-        <Navbar  >
+        <Navbar>
           <Container>
           <Navbar.Brand href="#home">Navbar</Navbar.Brand>
           <Nav className="me-auto">
