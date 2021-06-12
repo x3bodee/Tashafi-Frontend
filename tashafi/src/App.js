@@ -6,9 +6,9 @@ import {useEffect, useState} from "react"
 import Home from './pages/index/home.page'
 // import Login from './pages/forms/login';
 import Login from './componesnts/forms/Login';
-import Signup from './pages/forms/signup';
-import Booking from './pages/forms/booking';
-import Review from './pages/forms/review';
+import Signup from './pages/forms/signup.page';
+import Booking from './pages/forms/booking.page';
+import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
 
 
