@@ -1,0 +1,30 @@
+/*  #C55FFC 
+    #323E42
+    
+*/
+/* .navbar{
+} */
+
+.container-fluid{
+    background-color: #C55FFC
+}
+
+.header{
+    display: flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    
+}
+
+.info{
+    margin-left: 1%;
+}
+
+.pic{
+    height: 200px;
+    width:200px;
+    border-radius: 50%;
+    background-color: white;
+    
+}
