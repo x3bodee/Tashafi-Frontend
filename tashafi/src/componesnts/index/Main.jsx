@@ -9,7 +9,7 @@ export default function Main() {
 
     return (
         <div class="container__home">
-            
+
             <div class="left">
                 {/* 
                 
