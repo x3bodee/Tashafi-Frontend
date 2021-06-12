@@ -3,8 +3,9 @@ import './App.css';
 import { BrowserRouter , Route ,Switch } from "react-router-dom"
 import { isExpired, decodeToken } from "react-jwt";
 import {useEffect, useState} from "react"
-import Home from './pages/index/home'
-import Login from './pages/forms/login';
+import Home from './pages/index/home.page'
+// import Login from './pages/forms/login';
+import Login from './componesnts/forms/Login';
 import Signup from './pages/forms/signup';
 import Booking from './pages/forms/booking';
 import Review from './pages/forms/review';
@@ -22,6 +23,7 @@ function App() {
   } , [])
 
   const loginFunction = () =>{
+    console.log('inside login function')
     let token = localStorage.getItem("token")
     let decodeuser = decodeToken(token)
     if (decodeuser?.user && !isExpired(token) ){
@@ -31,6 +33,7 @@ function App() {
       setUser({})
       setIsLogin(false)
     }
+    console.log('end of login function')
   }
 
 console.log(user)
@@ -42,7 +45,7 @@ console.log(user)
     
     <Route exact path="/" component={Home} />
     <Route exact path="/login"
-    render={ () => <Login loginFunction={loginFunction}  />}  />
+      render={ () => <Login login={loginFunction}  />}  />
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/booking" component={Booking} />
     <Route exact path="/review" component={Review} />
