@@ -1,14 +1,16 @@
 import React from 'react'
 import NavBar from '../../componesnts/index/NavBar'
-import Booking from '../../componesnts/forms/Booking'
+import Session from '../../componesnts/forms/Session'
 
 
-export default function login() {
+export default function session() {
     return (
         <>
        <NavBar/>
-     
-        <Booking/>
+      
+        <Session/>
+       
+         
         </>
     )
 }

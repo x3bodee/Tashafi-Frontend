@@ -12,10 +12,21 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-right: 38%;
-    padding-left: 38%;
+    padding-right: 30%;
+    padding-left: 30%;
 
 }
 .h2{
     padding-bottom: 12%;
+    color: #323E42;
+}
+
+
+.gray-container{
+    background-color: #EFDCF9  ;
+
+    padding:10%;
+
+    border-radius: 5px;
+   
 }

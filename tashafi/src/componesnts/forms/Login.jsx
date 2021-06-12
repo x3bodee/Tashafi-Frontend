@@ -31,6 +31,7 @@ export default function Login(props) {
                 console.log(data)
                 console.log(data.data.token)
                 localStorage.setItem("token", data.data.token)
+                localStorage.setItem("UserID", data.data.userID)
                 console.log(props)
                 props.login()
                 history.push("/")
