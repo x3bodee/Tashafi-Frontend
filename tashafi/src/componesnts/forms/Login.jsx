@@ -1,23 +1,56 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import {Button, Col, Container, Form, Row} from "react-bootstrap";
 import loginIcon from '../../img/user.svg'
-import uiImg from '../../img/login.svg';
+import uiImg from '../../img/undraw_security_o890.svg';
 import '../../css/Login.css';
+import axios from 'axios';
+import {useHistory} from "react-router-dom"
 
-const Login = () => {
+export default function Login(props) {
+    const history= useHistory() ;
+
+  const [user , setUser] = useState({})
+
+
+  const changeUserHandler = ({target : {name , value}}) => setUser({...user , [name] : value})
+
+ const onSubmitHandler = (e) =>{
+  e.preventDefault()
+  console.log("click")
+console.log(" user.email", user.email)
+console.log(":user.password", user.password)
+  axios.post("http://localhost:4000/api/v1/auth/login" ,
+  {
+    
+    "email": user.email,
+    "password": user.password
+    
+
+})
+  .then(data => {
+ console.log(data)
+ localStorage.setItem("token" , data.data.token)
+ props.loginFunction()
+ history.push("/")
+ 
+  }).catch(err => console.log(err.response))
+
+ }
+
     return (
         <>
             <Container className="mt-5">
                 <Row>
                     <Col lg={4} md={6} sm={12} className="text-center mt-5 p-3">
                         <img className="icon-img" src={loginIcon} alt="icon"/>
-                        <Form>
+                        <Form  onSubmit ={(e) =>onSubmitHandler(e)}>
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" />
+                                <Form.Control type="email" placeholder="Enter email" name="email" onChange = {(e)=>changeUserHandler(e)} />
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" />
+                                <Form.Control type="password" placeholder="Password"  name="password" onChange = {(e)=>changeUserHandler(e)}/>
                             </Form.Group>
 
                             <Button variant="primary btn-block" type="submit">Login</Button>
@@ -36,6 +69,4 @@ const Login = () => {
             </Container>
         </>
     );
-};
-
-export default Login;
+};  
