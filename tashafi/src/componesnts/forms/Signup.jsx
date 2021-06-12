@@ -8,8 +8,9 @@ import { useHistory } from "react-router-dom";
 import Alert from 'react-bootstrap/Alert'
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
-export default function Signup() {
 
+export default function Signup() {
+    const history = useHistory();
 
     const [user, setUser] = useState({}); // {}
     const [confirmPassword, setConfirmPassword] = useState("");
@@ -142,6 +143,7 @@ export default function Signup() {
                 .then(data => {
 
                     console.log(data)
+                    history.push("/login")
 
                 }).catch(error => {
 
