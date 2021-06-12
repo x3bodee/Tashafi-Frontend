@@ -1,0 +1,29 @@
+#img__card{
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    padding: 10px;
+}
+
+.main__card{
+display: row;
+align-items: center;
+justify-content: center;
+text-align: center;
+
+}
+
+.img__card__container{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+}
+
+
+
+.card__info{
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
