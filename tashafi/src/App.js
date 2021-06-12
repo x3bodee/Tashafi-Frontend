@@ -10,11 +10,13 @@ import Signup from './pages/forms/signup.page';
 import Booking from './pages/forms/booking.page';
 import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
+import Search from './componesnts/index/Search';
 
 
 function App() {
   const [user , setUser] = useState({})
   const [isLogin , setIsLogin] = useState(false)
+
 
  
   // 
@@ -49,7 +51,9 @@ console.log(user)
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/booking" component={Booking} />
     <Route exact path="/review" component={Review} />
-    <Route exact path='/Result' component={Result}/>
+    <Route exact path='/Result/:id/:city' component={Result}/>
+    {/* <Route exact path='/Result' component={Result} render={()=><Result result={result}/>} /> */}
+    
 
     
     {/* <Route exact path="/allmovie" component={Allmovie} />

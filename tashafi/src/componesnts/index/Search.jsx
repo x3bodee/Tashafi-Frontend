@@ -1,7 +1,8 @@
 import React , {useEffect  , useState} from 'react'
 import {InputGroup ,Dropdown ,DropdownButton ,FormControl , Button , Form , Alert ,Toast} from 'react-bootstrap';
-import Typical from 'react-typical'
 import axios from 'axios'
+import { Route } from "react-router-dom"
+import { useHistory } from "react-router-dom";
 
 export default function Search() {
   const [speciality , setSpeciality] = useState([''])
@@ -9,6 +10,10 @@ export default function Search() {
   const [selected , setSelected] = useState({name:"speciality" , id:null})
   const [alert , setAlert] = useState('')
   const [show, setShow] = useState(false);
+  const [result , setResult] = useState([''])
+
+  const history = useHistory();
+
 
 
   
@@ -31,9 +36,7 @@ export default function Search() {
     // 
     const changeSearchHandler = ({target : {name , value}}) => {
       setSearch({[name] : value})
-      // setSearch({...search , [name] : value})
 
-      console.log(search)
     }
 
     const onClick = (e)=>{
@@ -48,7 +51,9 @@ export default function Search() {
 
     const onSubmit=(e)=>{
       e.preventDefault()
-      
+      history.push(`/result/${selected.id}/${search.city}`)
+
+// 1 - if select._id == null then create alert box
     if(selected.id == null){
       setAlert(
         
@@ -62,21 +67,39 @@ export default function Search() {
       setShow(true)
       
         }
-    else if(selected.id=='0' || search==''){
-      axios.get('http://localhost:4001/api/v1/booking/finddoctors')
-      console.log("enter the second condition")
-      .then(data=>{
-        console.log("entered then")
-        console.log(data)
-      })
-      .catch((err) =>{
-         console.log(err.msg)
-         console.log("enter catch")
-      
-      })
-    
-    }      
+// // 2 - else if select._id == "0" and search !='' then axios call for all doctors in this city
+if(!selected.id && !search){
+  setAlert(
+    <Alert 
+    variant="danger"
+    >
+the form is empty you must fill atleast one of the input to search
+  </Alert>
+  
+  )
+  setShow(true)
+  
     }
+
+// 4 - else if select._id 1= "0" and search !=''then axios call with specialty and city
+    else if(!selected.id=='0' && !search==''){
+        setAlert(
+          <Alert 
+          variant="success"
+          >
+            doctors has been found
+        </Alert>
+        )
+        setShow(true)
+      }
+      
+      
+
+    }
+
+
+    
+
 
 
     
@@ -95,17 +118,9 @@ export default function Search() {
       
         <>
         
-        <h2> Find local{' '} 
-         <Typical
-          loop={Infinity} 
-          wrapper="span" 
-          steps={['doctor',3000 ,'dentist',2000] }  /> 
-                  <br />
-                You can trust
-        </h2>
     <Form
     onSubmit={(e)=>onSubmit(e)}
-    >
+  >
 <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide >
 {alert}
 </Toast>
@@ -137,6 +152,7 @@ export default function Search() {
       </Form>
 
         </>
+        
     )
 }
 // 
