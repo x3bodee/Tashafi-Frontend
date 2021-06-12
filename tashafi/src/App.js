@@ -10,6 +10,7 @@ import Signup from './pages/forms/signup.page';
 import Booking from './pages/forms/booking.page';
 import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
+import Session from './pages/forms/session.page';
 
 
 function App() {
@@ -49,6 +50,7 @@ console.log(user)
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/booking" component={Booking} />
     <Route exact path="/review" component={Review} />
+    <Route exact path='/session' component={Session}/>
     <Route exact path='/Result' component={Result}/>
 
     
