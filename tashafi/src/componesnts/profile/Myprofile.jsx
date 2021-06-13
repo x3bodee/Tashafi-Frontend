@@ -5,11 +5,12 @@ import loginIcon from '../../img/user.svg'
 import axios from "axios"
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import '../../css/dashboard.css'
+import { useHistory } from "react-router-dom"
 
 export default function Myprofile({user}) {
 const [isDeleted, setIsDeleted] = useState(false)
 const [User, setUser] = useState({});
-
+const history = useHistory();
 
 useEffect(async()=>{
     setUser(user)
@@ -52,8 +53,9 @@ console.log(`user id is: ${user._id}`)
             console.log(data)
             console.log("=====================================================")
             setIsDeleted(true)
-            
-  
+            localStorage.removeItem("token")
+            localStorage.removeItem("UserID")
+            history.push('/')
         })
           .catch((err) => console.log(err))
       }
@@ -63,7 +65,7 @@ console.log(`user id is: ${user._id}`)
         <>
        
         <div className="myProfile__container">
-            <Container className="mt-5">
+            <Container className="mt-2">
 
 <Row>
 

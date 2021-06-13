@@ -1,11 +1,11 @@
 import React , {useEffect  , useState} from 'react'
 import {InputGroup ,Dropdown ,DropdownButton ,FormControl , Button , Form , Alert ,Toast} from 'react-bootstrap';
-import axios from 'axios'
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom";
 
-export default function Search() {
-  const [speciality , setSpeciality] = useState([''])
+export default function Search(props) {
+  // const [speciality , setSpeciality] = useState([''])
+  // const speciality2= props.specialit
   const [search , setSearch] = useState("")
   const [selected , setSelected] = useState({name:"speciality" , id:null})
   const [alert , setAlert] = useState('')
@@ -14,24 +14,16 @@ export default function Search() {
 
   const history = useHistory();
 
+//   useEffect(()=>{
+//     console.log("speciality in search")
+//     console.log(props.specialit)
 
-
-  
-
-
-
-  useEffect(()=>{
-    axios.get("http://localhost:4000/api/v1/specialty/specialties")
-    .then(data => {
-      let array=[{name:'All Speciality',_id:'0'}]
-      data.data.allSpecialties.forEach(element => {
-        array.push(element)
-      });
-      console.log(array)
-      setSpeciality(array)
-    })
-    .catch(error => console.error(error))
-    } , [])
+//     let specialties = props.specialit.map((item)=>{
+//       return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
+//     })
+//     console.log(specialties)
+//     setSpeciality(specialties)
+// },[])
 
     // 
     const changeSearchHandler = ({target : {name , value}}) => {
@@ -71,34 +63,19 @@ export default function Search() {
 
     }
 
-
-    
-
-
-
-    
-
-
-
-
-  const specialties = speciality.map((item)=>{
-    return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
-  })
-
-
-  
+  // const specialties = speciality.map((item)=>{
+  //   return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
+  // })
 
     return (
-      
         <>
-        
     <Form
     onSubmit={(e)=>onSubmit(e)}
   >
 <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide >
 {alert}
 </Toast>
-    <InputGroup className="mb-3  search" size="lg"   > 
+    <InputGroup className="mb-3  search" size="lg" > 
     <DropdownButton
       as={InputGroup.Prepend}
       variant="outline-secondary"
@@ -110,7 +87,7 @@ export default function Search() {
       
     >
       
-      {specialties}
+      {props.speciality}
     </DropdownButton>
     <FormControl className="form-control "
       placeholder=" City"

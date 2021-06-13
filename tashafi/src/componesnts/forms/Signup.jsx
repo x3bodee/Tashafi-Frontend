@@ -14,7 +14,7 @@ export default function Signup() {
     const history = useHistory();
     const [user, setUser] = useState({}); // {}
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [speciality, setSpeciality] = useState([]);
+    const [speciality, setSpeciality] = useState();
     const [alert, setAlert] = useState("");
     const [isDoctor, setIsDoctor] = useState(false);
 
@@ -28,15 +28,17 @@ export default function Signup() {
             url: 'http://localhost:4000/api/v1/specialty/specialties',
             headers: {}
         };
+        let arr = [{value: '0', label: 'Select specialty'}]
         axios(config)
             .then(function (response) {
-                var allSpecialties = response.data.allSpecialties.map(item => ({
+                var allSpecialties = response.data.allSpecialties.forEach(item => (
+                   arr.push( {
                     value: item._id,
                     label: item.name
-                }))
+                    })))
                 console.log("speciality", allSpecialties);
 
-                setSpeciality(allSpecialties)
+                setSpeciality(arr)
             })
             .catch(function (error) {
                 console.log(error);
@@ -130,6 +132,12 @@ export default function Signup() {
             </Alert>)
         }
 
+        else if (!user.specialty || user.specialty.value == '0') {
+            setAlert(<Alert transition="Fade" variant={"danger"}>
+                You need to select a specialty
+            </Alert>)
+        }
+
 
         else {
             console.log(user)
@@ -169,29 +177,31 @@ export default function Signup() {
 
     return (
         <>
-            <Container className="mt-5">
+            <Container>
 
                 <Row>
 
-                    <Col lg={4} md={6} sm={12} className="text-center mt-5 p-3">
+                    <Col lg={4} md={6} sm={12} className="text-center p-3">
                         {alert}
                         <img className="icon-img" src={loginIcon} alt="icon" />
                         <Form onSubmit={(e) => userOnsubmitHandler(e)} >
                             <Row>
-                                <ButtonGroup onClick={(e) => handleClickButtonGroup(e)}>
-                                    <Col lg={10} md={6} sm={6}>
-                                        <Button variant="primary" value={true} > As Doctor </Button>
-                                    </Col>
-                                    <Col lg={7} md={6} sm={6}>
-                                        <Button variant="primary" value={false} > As Patient</Button>
-                                    </Col>
+                                    <Col sm={12} md={6} >
+                                <ButtonGroup className="fullwidth" onClick={(e) => handleClickButtonGroup(e)}>
+                                        <Button className="btn-colorr" variant="primary" value={true} > As Doctor </Button>
                                 </ButtonGroup>
+                                    </Col>
+                                    <Col  sm={12} md={6}>
+                                <ButtonGroup className="fullwidth" onClick={(e) => handleClickButtonGroup(e)}>
+                                        <Button className="btn-colorr" variant="primary" value={false} > As Patient</Button>
+                                </ButtonGroup>
+                                    </Col>
                             </Row>
-                            <Row>
+                            
                                 <br />
-                            </Row>
+                            
 
-                            <Form.Group >
+                            <Form.Group className="fullwidth" >
                                 <Form.Control type="text" placeholder="First Name" name="Fname" onChange={(e) => userChangeHandler(e)} />
                             </Form.Group>
                             <Form.Group >
@@ -212,11 +222,11 @@ export default function Signup() {
                             </Form.Group> */}
 
                             <Form.Group controlId="exampleForm.ControlSelect1">
-                                <Form.Label>Gender</Form.Label>
-                                <Form.Control as="select" name="gender" onChange={(e) => userChangeHandler(e)} value={user.gender}>
-                                    <option value="select"></option>
-                                    <option value="female"   >Female</option>
-                                    <option value="male"   >Male</option>
+                                {/* <Form.Label>Gender</Form.Label> */}
+                                <Form.Control className="opt" as="select" name="gender" onChange={(e) => userChangeHandler(e)} value={user.gender}>
+                                    <option className="opt" value="select">Select Gender</option>
+                                    <option className="opt" value="female"   >Female</option>
+                                    <option className="opt" value="male"   >Male</option>
 
                                 </Form.Control>
                             </Form.Group>
@@ -235,14 +245,12 @@ export default function Signup() {
                             {isDoctor ?
 
                                 (<Form.Group controlId="exampleForm.SelectCustom">
-                                    <Form.Label>Select speciality</Form.Label>
-                                    <Form.Control as="select"
+                                    {/* <Form.Label>Select speciality</Form.Label> */}
+                                    <Form.Control className="opt" as="select"
                                         name="specialty"
-
-
                                         onChange={(e) => userChangeHandler(e)} custom>
                                         {speciality.map((item, i) => {
-                                            return (<option key={i} value={item.value} >{item.label}</option>)
+                                            return (<option className="opt" key={i} value={item.value} >{item.label}</option>)
 
                                         })}
 
@@ -254,7 +262,7 @@ export default function Signup() {
 
                             }
 
-                            <Button variant="primary btn-block" type="submit">Register</Button>
+                            <Button className="btn-colorr" variant="primary btn-block" type="submit">Register</Button>
 
                             {/* <div className="text-left mt-3">
                                 <a href="#"><small className="reset">Password Reset</small></a> II
