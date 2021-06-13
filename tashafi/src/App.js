@@ -4,8 +4,8 @@ import { BrowserRouter , Route ,Switch } from "react-router-dom"
 import { isExpired, decodeToken } from "react-jwt";
 import {useEffect, useState} from "react"
 import Home from './pages/index/home.page'
-// import Login from './pages/forms/login';
-import Login from './componesnts/forms/Login';
+import Login from './pages/forms/login.page';
+// import Login from './componesnts/forms/Login';
 import Signup from './pages/forms/signup.page';
 import Booking from './pages/forms/booking.page';
 import Review from './pages/forms/review.page';

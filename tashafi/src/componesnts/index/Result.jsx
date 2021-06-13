@@ -49,7 +49,7 @@ const doctors=doctor.map((item)=>{
               <div class="card__info"> 
                    <Card.Body> 
                         <Card.Title> {item.Fname} {item.Lname} </Card.Title>
-                        <Card.Text>{item.specialty.name} </Card.Text> 
+                        {/* <Card.Text>{item.specialty.name} </Card.Text>  */}
                     </Card.Body> 
               </div>
               </Card>
