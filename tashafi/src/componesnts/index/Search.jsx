@@ -21,7 +21,7 @@ export default function Search() {
 
 
   useEffect(()=>{
-    axios.get("http://localhost:4001/api/v1/specialty/specialties")
+    axios.get("http://localhost:4000/api/v1/specialty/specialties")
     .then(data => {      
       let array=[{name:'All Speciality',_id:'0'}]
       data.data.allSpecialties.forEach(element => {
@@ -54,46 +54,20 @@ export default function Search() {
       history.push(`/result/${selected.id}/${search.city}`)
 
 // 1 - if select._id == null then create alert box
-    if(selected.id == null){
+    if(selected.id == null || search.city==undefined){
       setAlert(
         
         <Alert 
         variant="danger"
         >
-          you must chose one of the specility that's available
+          messingData
       </Alert>
       
       )
       setShow(true)
       
         }
-// // 2 - else if select._id == "0" and search !='' then axios call for all doctors in this city
-if(!selected.id && !search){
-  setAlert(
-    <Alert 
-    variant="danger"
-    >
-the form is empty you must fill atleast one of the input to search
-  </Alert>
-  
-  )
-  setShow(true)
-  
-    }
 
-// 4 - else if select._id 1= "0" and search !=''then axios call with specialty and city
-    else if(!selected.id=='0' && !search==''){
-        setAlert(
-          <Alert 
-          variant="success"
-          >
-            doctors has been found
-        </Alert>
-        )
-        setShow(true)
-      }
-      
-      
 
     }
 

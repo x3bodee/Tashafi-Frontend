@@ -6,11 +6,16 @@ export default function NavBar() {
         <>
         <Navbar>
           <Container>
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+          <Navbar.Brand href="/">Navbar</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">SignUp</Nav.Link>
-            <Nav.Link href="#pricing">SignIn</Nav.Link>
+            <Nav.Link href="/"
+            >Home</Nav.Link>
+            <Nav.Link href="/signup"
+            
+              >SignUp</Nav.Link>
+            <Nav.Link href="/login"
+            
+            >SignIn</Nav.Link>
           </Nav>
           </Container>
         </Navbar>

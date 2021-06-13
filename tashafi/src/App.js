@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter , Route ,Switch } from "react-router-dom"
+import { BrowserRouter , Route ,Switch ,Redirect } from "react-router-dom"
 import { isExpired, decodeToken } from "react-jwt";
 import {useEffect, useState} from "react"
 import Home from './pages/index/home.page'
@@ -12,6 +12,7 @@ import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
 import Session from './pages/forms/session.page';
 import Doctor from './pages/doctor/Doctor.page';
+import Profile from './componesnts/profile/Profile'
 
 
 function App() {
@@ -54,8 +55,10 @@ console.log(user)
     <Route exact path="/review" component={Review} />
     <Route exact path='/Result/:id/:city' component={Result}/>
     <Route exact path='/session' component={Session}/>
-    <Route exact path='/Result' component={Result}/>
+    {/* <Route exact path='/Result' component={Result}/> */}
     <Route exact path='/doctorp/:id' component={Doctor}/>
+    <Route exact path="/profile" render={() => isLogin==true ? <Profile user={user} /> : <Login login={loginFunction}  />} />
+
 
     
     {/* <Route exact path="/allmovie" component={Allmovie} />
