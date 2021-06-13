@@ -3,12 +3,12 @@ import NavBar from '../../componesnts/index/NavBar'
 import Booking from '../../componesnts/forms/Booking'
 
 
-export default function login() {
+export default function booking(props) {
     return (
         <>
        <NavBar/>
      
-        <Booking/>
+        <Booking meeting_id={props.match.params.id}/>
         </>
     )
 }

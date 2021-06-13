@@ -50,6 +50,8 @@ console.log(user)
     <Route exact path="/login"
       render={ () => <Login login={loginFunction}  />}  />
     <Route exact path="/signup" component={Signup} />
+    <Route exact path="/booking/:id" component={Booking} />
+    <Route exact path="/review/:id" component={Review} />
     <Route exact path="/booking" component={Booking} />
     <Route exact path="/review" component={Review} />
     <Route exact path='/Result/:id/:city' component={Result}/>
