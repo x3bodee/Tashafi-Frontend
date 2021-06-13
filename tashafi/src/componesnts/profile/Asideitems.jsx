@@ -6,6 +6,9 @@ export  const Asideitems =[
     title:"My Profile",
     icon:<AssignmentInd/> ,
     itemNum:"1"
+    icon:<AssignmentInd/>,
+    value:"profile",
+
 },
 {
     title:"My Booking",

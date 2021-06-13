@@ -30,10 +30,10 @@ console.log(user)
            
             <div className="aside__main">
 
-
                 {/* <Myprofile user={user} /> */}
                 {/* <MyBooking user={user}/>   */}
                 <MySessions user={user}/>  
+
 
             </div>
         </div>
