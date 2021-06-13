@@ -2,11 +2,13 @@ import React , {useEffect,useState} from 'react'
 import Asidebar from './Asidebar'
 import Myprofile from './Myprofile'
 import MyBooking from './MyBooking'
+import MySessions from './MySessions'
+import {Asideitems} from './Asideitems'
+
 
 
 export default function Profile({user}) {
 console.log(user)
-  const [userinfo, setUserInfo] = useState({})
 
     // useEffect(() => {
     //     axios.get(`http://localhost:4000/api/v1/user/${user._id}`)
@@ -28,9 +30,10 @@ console.log(user)
            
             <div className="aside__main">
 
-                {/* {(state == "profile")} */}
                 {/* <Myprofile user={user} /> */}
-                <MyBooking user={user}/>    
+                {/* <MyBooking user={user}/>   */}
+                <MySessions user={user}/>  
+
 
             </div>
         </div>

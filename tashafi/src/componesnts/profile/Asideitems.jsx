@@ -4,24 +4,28 @@ import {AssignmentTurnedIn , AssignmentInd  , Devices ,RateReview} from '@materi
 export  const Asideitems =[
 {
     title:"My Profile",
+    icon:<AssignmentInd/> ,
+    itemNum:"1"
     icon:<AssignmentInd/>,
     value:"profile",
-    // onClick:(e)=>{clickhandel(e)}
+
 },
 {
     title:"My Booking",
     icon:<AssignmentTurnedIn/>,
-    render:""
+    itemNum:"2"
 },
 {
     title:"My Sessions",
     icon:<Devices/>,
-    render:""
+    itemNum:"3"
+
 },
 {
     title:"My Reviews",
     icon:<RateReview/>,
-    render:""
+    itemNum:"4"
+
 }
 ]  
    
