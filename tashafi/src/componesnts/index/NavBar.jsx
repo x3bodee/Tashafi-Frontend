@@ -1,17 +1,25 @@
 import React, {Component} from 'react'; 
 import { Navbar , Container , Nav} from 'react-bootstrap';
 // import logo from '../../img/TashaFi.png'
+import {useHistory  } from 'react-router-dom'
+import uiImg from '../../img/Tlogo.png';
 
-export default function NavBar() {
+
+export default function NavBar(props) {
+
+  const history = useHistory()
+ 
+  const [value, setValue] = React.useState(0);
+
     return (
         <>
         <Navbar>
           <Container>
-          <Navbar.Brand href="#home"> Tashafi</Navbar.Brand>
+          <Navbar.Brand href="#home"> TashaFI</Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#features">SignUp</Nav.Link>
-            <Nav.Link href="#pricing">SignIn</Nav.Link>
+            <Nav.Link   onClick = {()=> history.push('/')}>Home</Nav.Link>
+            <Nav.Link onClick = {()=> history.push('/signup')}>SignUp</Nav.Link>
+            <Nav.Link onClick = {()=> history.push('/login')}>SignIn</Nav.Link>
           </Nav>
           </Container>
         </Navbar>

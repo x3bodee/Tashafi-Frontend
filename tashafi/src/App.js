@@ -11,7 +11,7 @@ import Booking from './pages/forms/booking.page';
 import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
 import Session from './pages/forms/session.page';
-import Doctor from './pages/doctor/Doctor.page';
+import Doctor from './pages/doctor/doctor.page';
 
 
 function App() {

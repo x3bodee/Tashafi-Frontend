@@ -50,7 +50,7 @@ export default function Booking(props) {
                 {/* <img className="icon-img" src={loginIcon} alt="icon" /> */}
                 <p> </p>
             <h2 class='h2'>Tell Us a Bit About You</h2>
-            <p>To book your appointment, we need to verify a few things for Doctor {props.doctor}</p>
+            <p>To book your appointment, we need to verify a few things for your doctor. {props.doctor}</p>
                 <Row>
                     <Col >
                         

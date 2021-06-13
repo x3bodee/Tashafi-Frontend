@@ -21,7 +21,7 @@ export default function Result(props) {
 // console.log(`city: ${city}, specialtyID: ${specialtyID}`)
 
 useEffect(()=>{
-  axios.post('http://localhost:4001/api/v1/booking/finddoctors/',{
+  axios.post('http://localhost:4000/api/v1/booking/finddoctors/',{
     "city":city , 
     "specialty":specialtyID
     
