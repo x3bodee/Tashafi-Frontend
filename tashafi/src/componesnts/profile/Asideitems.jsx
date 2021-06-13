@@ -5,7 +5,8 @@ export  const Asideitems =[
 {
     title:"My Profile",
     icon:<AssignmentInd/>,
-    render:""
+    value:"profile",
+    // onClick:(e)=>{clickhandel(e)}
 },
 {
     title:"My Booking",

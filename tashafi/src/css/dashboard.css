@@ -1,6 +1,10 @@
 .asidepage{
     display: flex;
     height: 100vh;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: flex-start;
 
 }
 
@@ -14,7 +18,8 @@
 
 .aside__main{
    width: auto;
-   padding-left: 20%;
+   /* margin: 0 5% 0 5%; */
+   padding-left: 25%;
 }
 
 .aside__list{
@@ -88,6 +93,12 @@ background-color:#7954a1 ;
     color: black;
 }
 
+.row{
+    width: 100%;
+}
+.myProfile__container{
+    width: 100%;
+}
 
 
 .booking__container{
@@ -98,6 +109,7 @@ background-color:#7954a1 ;
     margin:1%;
     text-align: center;
     width: 100%;
+    margin-left: -25%;
 }
 
 
