@@ -6,7 +6,7 @@ import Main from '../../componesnts/index/Main'
 export default function home() {
     return (
         <>
-        <NavBar/>
+        <NavBar />
         <Main/> 
        
          

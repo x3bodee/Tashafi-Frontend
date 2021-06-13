@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Profile from '../../componesnts/doctor/Profile';
+import Profile from '../../componesnts/doctor/profile';
 import Review from '../../componesnts/doctor/Review';
 import Session from '../../componesnts/doctor/Session';
 import NavBar from '../../componesnts/index/NavBar';
