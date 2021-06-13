@@ -10,8 +10,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 
 export default function Signup() {
+    
     const history = useHistory();
-
     const [user, setUser] = useState({}); // {}
     const [confirmPassword, setConfirmPassword] = useState("");
     const [speciality, setSpeciality] = useState([]);
