@@ -1,7 +1,7 @@
-* {
+/* * {
 	
 	box-sizing: border-box;
-}
+} */
 
 
   button {
@@ -10,13 +10,20 @@
     background-color: #C55FFC !important;
     border-color: #C55FFC !important;
 	border-radius: 5px;
-	width: 300;
+	width: 75%;
 	padding: 10px;
 	
   }
 
+.form-group {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
   .div{
-	  padding-top: 8%;
+	  padding-top: 3%;
+    width: 70%
   }
   .h2{
 	  padding-bottom: 4%;

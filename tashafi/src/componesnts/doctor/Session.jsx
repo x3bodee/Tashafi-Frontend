@@ -12,7 +12,7 @@ const breakPoints = [
 
 export default function Session(props) {
     // const [date, setDate] = useState();
-    const datee = props.sessions;
+    const date = props.sessions;
 
     // useEffect(() => {
     //     if (props.sessions) {
@@ -38,16 +38,16 @@ export default function Session(props) {
         console.log(e.target)
     }
 
- datee.map( (ele) =>  {
-    let start = new Date(ele.start_time)
-    let end = new Date(ele.end_time)
+//  datee.map( (ele) =>  {
+//     let start = new Date(ele.start_time)
+//     let end = new Date(ele.end_time)
 
-    var sn = start.toLocaleString().split(", ");
-    var en = start.toLocaleString().split(", ");
-    var g = end.toString().split(" ")[0];
-    let date = { date: sn[0], day: g, start: sn[1], end: en[1], session_id: ele._id }
-    return date;
- });
+//     var sn = start.toLocaleString().split(", ");
+//     var en = start.toLocaleString().split(", ");
+//     var g = end.toString().split(" ")[0];
+//     let date = { date: sn[0], day: g, start: sn[1], end: en[1], session_id: ele._id }
+//     return date;
+//  });
 
     return (
         
@@ -57,7 +57,7 @@ export default function Session(props) {
                 <h2>Available Times</h2>
                 <div className="carousel-wrapper">
                     <Carousel breakPoints={breakPoints}>
-                                           {datee.map((date, i) => (
+                                           {date.map((date, i) => (
                     <Card key={i} style={{ width: '100%', height: '250px', marginLeft: '10px' }}>
                         <Card.Body>
                             <Card.Title>Session Info</Card.Title>
@@ -65,7 +65,7 @@ export default function Session(props) {
                             <Card.Subtitle className="mb-2 text-muted">Day : <span className="text">{date.day}</span></Card.Subtitle>
                             <Card.Subtitle className="mb-2 text-muted">Start: <span className="text">{date.start}</span></Card.Subtitle>
                             <Card.Subtitle className="mb-2 text-muted">End: <span className="text">{date.end}</span></Card.Subtitle>
-                            <Button className="mt-2" id={date.session_id + i} variant="primary" onClick={(e) => handelItemClick(e)}>Book</Button>
+                            <Button className="mt-2" id={date.session_id} variant="primary" onClick={(e) => handelItemClick(e)}>Book</Button>
                         </Card.Body>
                     </Card>
                 ))}

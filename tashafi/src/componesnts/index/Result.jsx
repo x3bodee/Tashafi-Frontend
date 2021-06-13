@@ -24,7 +24,6 @@ useEffect(()=>{
   axios.post('http://localhost:4000/api/v1/booking/finddoctors/',{
     "city":city , 
     "specialty":specialtyID
-    
   })
   .then(data => { 
   let alldoctors=[]
