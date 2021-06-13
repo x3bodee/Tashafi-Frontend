@@ -28,8 +28,8 @@ console.log(user)
            
             <div className="aside__main">
 
-
-                <Myprofile user={user} />
+                {/* {(state == "profile")} */}
+                {/* <Myprofile user={user} /> */}
                 <MyBooking user={user}/>    
 
             </div>

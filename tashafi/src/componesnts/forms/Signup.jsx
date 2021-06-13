@@ -132,7 +132,7 @@ export default function Signup() {
             </Alert>)
         }
 
-        else if (!user.specialty || user.specialty.value == '0') {
+        else if ((!user.specialty || user.specialty.value == '0' ) && isDoctor) {
             setAlert(<Alert transition="Fade" variant={"danger"}>
                 You need to select a specialty
             </Alert>)
@@ -186,16 +186,16 @@ export default function Signup() {
                         <img className="icon-img" src={loginIcon} alt="icon" />
                         <Form onSubmit={(e) => userOnsubmitHandler(e)} >
                             <Row>
-                                    <Col sm={12} md={6} >
                                 <ButtonGroup className="fullwidth" onClick={(e) => handleClickButtonGroup(e)}>
+                                    <Col sm={12} md={6} >
                                         <Button className="btn-colorr" variant="primary" value={true} > As Doctor </Button>
-                                </ButtonGroup>
+                                {/* </ButtonGroup> */}
                                     </Col>
                                     <Col  sm={12} md={6}>
-                                <ButtonGroup className="fullwidth" onClick={(e) => handleClickButtonGroup(e)}>
+                                {/* <ButtonGroup className="fullwidth" onClick={(e) => handleClickButtonGroup(e)}> */}
                                         <Button className="btn-colorr" variant="primary" value={false} > As Patient</Button>
-                                </ButtonGroup>
                                     </Col>
+                                </ButtonGroup>
                             </Row>
                             
                                 <br />

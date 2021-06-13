@@ -65,11 +65,11 @@ console.log(`user id is: ${user._id}`)
         <>
        
         <div className="myProfile__container">
-            <Container className="mt-2">
+            <Container className="mt-2" fluid>
 
 <Row>
 
-    <Col lg={10} md={12} sm={12} className="text-center mt-5 p-3">
+    <Col lg={10} md={12} sm={12} className="text-center">
         {alert}
         <img className="icon-img" src={loginIcon} alt="icon" />
         <Form onSubmit={(e) => userOnsubmitHandler(e)}>
