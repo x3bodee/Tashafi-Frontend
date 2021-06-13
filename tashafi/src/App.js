@@ -18,6 +18,7 @@ function App() {
   const [user , setUser] = useState({})
   const [isLogin , setIsLogin] = useState(false)
 
+
  
   // 
   useEffect(()=> {
@@ -51,6 +52,7 @@ console.log(user)
     <Route exact path="/signup" component={Signup} />
     <Route exact path="/booking" component={Booking} />
     <Route exact path="/review" component={Review} />
+    <Route exact path='/Result/:id/:city' component={Result}/>
     <Route exact path='/session' component={Session}/>
     <Route exact path='/Result' component={Result}/>
     <Route exact path='/doctorp/:id' component={Doctor}/>

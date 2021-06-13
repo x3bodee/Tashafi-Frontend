@@ -2,6 +2,8 @@ import React from 'react'
 import '../../css/Home.css'
 import MainImg from '../../img/undraw_doctors_hwty.png' 
 import Search from './Search'
+import Typicaltext from './Typical'
+
 
 
 export default function Main() {
@@ -11,13 +13,7 @@ export default function Main() {
         <div class="container__home">
 
             <div class="left">
-                {/* 
-                
-                1. dropdown menu
-                2. input 
-                3. search button
-                */}
-
+                <Typicaltext/>
                 <Search/>
             </div>
 
