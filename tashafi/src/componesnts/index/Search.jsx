@@ -62,7 +62,6 @@ export default function Search(props) {
 
 
     }
-
   // const specialties = speciality.map((item)=>{
   //   return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
   // })

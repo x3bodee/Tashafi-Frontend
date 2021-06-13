@@ -1,9 +1,7 @@
 import React , {useEffect,useState} from 'react'
-import {  BrowserRouter , Route , Switch } from "react-router-dom"
-import axios from 'axios'
 import Asidebar from './Asidebar'
 import Myprofile from './Myprofile'
-import Updateprofile from './Updateprofile'
+import MyBooking from './MyBooking'
 
 
 export default function Profile({user}) {
@@ -25,10 +23,14 @@ console.log(user)
         <>
         { user &&
         <div className="asidepage">
+
            <Asidebar/>
+           
             <div className="aside__main">
 
+
                 <Myprofile user={user} />
+                <MyBooking user={user}/>    
 
             </div>
         </div>
