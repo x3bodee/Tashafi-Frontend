@@ -46,7 +46,7 @@ useEffect(()=>{
     console.log(doctor)
 const doctors=doctor.map((item)=>{
   
-    return  <Card border="none" class="main__card" style={{ width: '40rem' , height:'20rem' , marginLeft:"25%"}}>
+    return <a href={`/doctorp/${item._id}`}> <Card border="none" class="main__card" style={{ width: '40rem' , height:'20rem' , marginLeft:"25%"}}>
     <Card.Header style={{background:'#7954A1' , outline:'none'}}>Header </Card.Header>
 
         <div class='img__card__container'>
@@ -59,6 +59,7 @@ const doctors=doctor.map((item)=>{
               </Card.Body> 
         </div>
         </Card>
+        </a>
  
 })
 

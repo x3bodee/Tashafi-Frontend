@@ -82,7 +82,7 @@ export default function Search() {
 
 
   const specialties = speciality.map((item)=>{
-    return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
+    return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item> 
   })
 
 
