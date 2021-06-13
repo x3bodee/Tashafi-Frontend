@@ -1,22 +1,28 @@
 import React, { useState } from 'react';
-import {Button, Col, Container, Form, Row} from "react-bootstrap";
+import {Button, Col, Container, Form, ModalBody, Row} from "react-bootstrap";
 import axios from 'axios';
 import '../../css/booking.css';
+import '../../css/Login.css';
+import loginIcon from '../../img/user.svg'
+import { useParams } from 'react-router-dom';
 
 
-export default function Booking() {
+export default function Booking(props) {
     const [user, setUser] = useState({});
-    
+    console.log(props.status)
     const changeUserHandler = ({ target: { name, value } }) => setUser({ ...user, [name]: value })
 
     const onSubmitHandler = (e) => {
+        e.preventDefault()
         
         console.log("click")
+    
         axios.post("http://localhost:4000/api/v1/booking/new",
             {
                 "description": user.description,
-                "patient": "",
-                "meeting_id":""
+                "patient": localStorage.UserID,
+                "meeting_id":props.meeting_id
+
             })
             .then(data => {
 
@@ -32,14 +38,19 @@ export default function Booking() {
     }
 
     return (
+        
         <div class="centered" >
             
   
         <>
-        
+       
             <Container >
+           
                 <div class="gray-container">
+                {/* <img className="icon-img" src={loginIcon} alt="icon" /> */}
+                <p> </p>
             <h2 class='h2'>Tell Us a Bit About You</h2>
+            <p>To book your appointment, we need to verify a few things for Doctor {props.doctor}</p>
                 <Row>
                     <Col >
                         
@@ -47,7 +58,7 @@ export default function Booking() {
                             {/* <Form.Group controlId="formBasicEmail">
                                 <Form.Control type="email" placeholder="Enter email" />
                             </Form.Group> */}
-                            <Form.Group>
+                            {/* <Form.Group>
                             <Form.Label>Name</Form.Label>
                             <Form.Row>
                                <Col>
@@ -66,16 +77,16 @@ export default function Booking() {
                                    <option value="male" >Male</option>
 
                                   </Form.Control>
-                                  </Form.Group>
-                            </Col>
+                                  </Form.Group> */}
+                            {/* </Col> */}
                            
 
                             <Form.Group controlId="exampleForm.ControlTextarea1">
-                            <Form.Label>Description</Form.Label>
-                            <Form.Control as="textarea" rows={6}  onChange={(e) => changeUserHandler(e)}/>
+                            <Form.Label></Form.Label>
+                            <Form.Control as="textarea" rows={6}   name ="description" onChange={(e) => changeUserHandler(e)}/>
                             </Form.Group>
 
-                            <Button variant="primary btn-block" type="submit">Booking</Button>
+                            <Button variant=" btn primary " type="submit">Booking</Button>
 
                           
                         </Form>
@@ -84,11 +95,17 @@ export default function Booking() {
                    
                 </Row>
                 </div>
+                
             </Container>
         </>
-   
+                       <div class="wave-container">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+                         <path fill="#FFF" d="…"></path>
+                         </svg>
+                          </div>
 
 
         </div>
+       
     )
 }
