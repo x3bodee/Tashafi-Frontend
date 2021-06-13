@@ -3,11 +3,11 @@ import NavBar from '../../componesnts/index/NavBar'
 import Login from '../../componesnts/forms/Login'
 
 
-export default function login() {
+export default function login(props) {
     return (
         <>
        <NavBar/>
-        <Login/>
+        <Login login={props.login}/>
        
          
         </>
