@@ -5,7 +5,7 @@
 /* .navbar{
 } */
 
-.container-fluid{
+.purpel{
     background-color: #C55FFC
 }
 
@@ -97,13 +97,14 @@
  }
 
  .cont{
-
+    width: 95%;
      text-align:center;
  }
 
 
   .cont h2{
       color: #C55FFC;
+      background-color: #fff;
   }
 
   .pname{
@@ -111,13 +112,22 @@
       font-size:18px;
       font-weight:bold;
       color:#C55FFC;
+      text-transform:capitalize;
   }
   .desc{
+      font-size: 20px;
       text-align:left;
   }
 
   .trans{
       text-transform: capitalize;
+  }
+
+  .rating{
+      display: flex;
+      justify-content:center;
+      align-items:center;
+      width: 100%;
   }
   
   @media only screen and (max-width: 400px) {

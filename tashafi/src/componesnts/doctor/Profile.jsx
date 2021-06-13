@@ -52,7 +52,7 @@ export default function Profile(props) {
     return (
 
         <>
-            <Container fluid>
+            <Container className="purpel" fluid>
                 <Row>
                     <Col sm={12}>
 
@@ -64,8 +64,8 @@ export default function Profile(props) {
                             }}>
                             </div>
                             <div className="info">
-                                <h2>Dr. {props.user.Fname+props.user.Lname} </h2>
-                                <h3 className="trans">{props.specialty.name}, {props.user.city}, {props.user.gender}</h3>
+                                <h2>Dr. {props.user.Fname+" "+props.user.Lname} </h2>
+                                <h3 className="trans"> { props.specialty }, {props.user.city}, {props.user.gender=="male" ?  <FaMale /> : <FaFemale />}</h3>
 
                                 <div className="stars-rating mb-3">
                                     {stars.map((_, index) => {

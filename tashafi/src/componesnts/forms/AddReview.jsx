@@ -1,7 +1,9 @@
 import React from 'react'
 import { useState } from "react";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import '../../css/review.css';
 import { FaStar } from "react-icons/fa";
+import axios from 'axios';
 
 const colors = {
     orange: "#FFBA5A",
@@ -9,11 +11,19 @@ const colors = {
     
 };
 
-export default function Review() {
+export default function AddReview(props) {
+  const [user, setUser] = useState({});
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
+    
+
   
+
+
+    const changeUserHandler = ({ target: { name, value } }) => setUser({ ...user, [name]: value })
+
+   
     const handleClick = value => {
       setCurrentValue(value)
     }
@@ -25,17 +35,52 @@ export default function Review() {
     const handleMouseLeave = () => {
       setHoverValue(undefined)
     }
+
+    const onSubmitHandler = (e) => {
+      e.preventDefault()
+      
+      console.log(user.comment)
+      console.log(currentValue)
+      console.log(props.doctor)
+      console.log(localStorage.UserID)
+      
+      axios.post("http://localhost:4000/api/v1/review/new",
+          {
+              "comment": user.comment,
+              "review_number": currentValue,
+             //here i must pass current user id 
+              "patient": localStorage.UserID, 
+              "doctor":props.doctor
+
+             
+          })
+          
+          .then(data => {
+
+              console.log("data :")
+              console.log(data)
+              console.log("hi")
+             
+
+          })
+          .catch(err =>{
+              console.log(err)
+          })
+
+          console.log("done")
+  }
   
     return (
         
         <div class="div">
-            
+            <Form   onSubmit={(e) => onSubmitHandler(e)}>
         <div style={styles.container}>
         <h2 class="h2"> Rate your doctor </h2>
+        
       <div style={styles.stars}>
         {stars.map((_, index) => {
           return (
-            <FaStar
+            <FaStar name="review_number" onChange={(e) => changeUserHandler(e)}
               key={index}
               size={24}
               onClick={() => handleClick(index + 1)}
@@ -45,15 +90,19 @@ export default function Review() {
               style={{
                 marginRight: 10,
                 cursor: "pointer"
+                
               }}
             />
           )
         })}
       </div>
-      <textarea
-        placeholder="What's your experience?"
-        style={styles.textarea}
-      />
+     
+        <Form.Group controlId="exampleForm.ControlTextarea1">
+                    <Form.Label></Form.Label>
+                   <Form.Control as="textarea" name="comment"   style={styles.textarea} placeholder="What's your experience?" rows={6}  onChange={(e) => changeUserHandler(e)}>
+                     
+                    </Form.Control>
+                   </Form.Group>
 
       <button
         style={styles.button}
@@ -62,8 +111,8 @@ export default function Review() {
       </button>
       
     </div>
-  );
-
+  
+  </Form>
         </div>
     )
     
@@ -84,7 +133,7 @@ const styles = {
       padding: 10,
       margin: "20px 0",
       minHeight: 200,
-      width: 400
+      width: '80%'
     },
     button: {
         border: "1px solid #a9a9a9",

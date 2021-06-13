@@ -9,18 +9,21 @@
     display: flex;
     height: 100vh; 
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding-right: 30%;
-    padding-left: 30%;
+   padding-top: 5%;
+    padding-right: 35%;
+    padding-left: 35%;
 
 }
 .h2{
-    padding-bottom: 12%;
+  text-align: left;
+    padding-bottom: 7%;
     color: #323E42;
 }
 
+.icon-img{
+  align-items: left;
+  padding-left: 0%;
+}
 
 .gray-container{
     background-color: #EFDCF9  ;
@@ -30,3 +33,18 @@
     border-radius: 5px;
    
 }
+html {
+    box-sizing: border-box;
+  }
+  *,*::before,*::after {
+    box-sizing: inherit;
+  }
+  body {
+    margin: 0;
+  }
+  .wave-container {
+    background: #EEE;
+  }
+  .wave-container > svg {
+    display: block;
+  }

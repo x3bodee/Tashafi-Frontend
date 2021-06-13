@@ -11,8 +11,12 @@ import Booking from './pages/forms/booking.page';
 import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
 import Session from './pages/forms/session.page';
+<<<<<<< HEAD
 import Doctor from './pages/doctor/Doctor.page';
 import Profile from './componesnts/profile/Profile'
+=======
+import Doctor from './pages/doctor/doctor.page';
+>>>>>>> 81abef376bfcbeea7e139d96759081d1168491e9
 
 
 function App() {
@@ -51,8 +55,10 @@ console.log(user)
     <Route exact path="/login"
       render={ () => <Login login={loginFunction}  />}  />
     <Route exact path="/signup" component={Signup} />
+    <Route exact path="/booking/:id" component={Booking} />
+    <Route exact path="/review/:id" component={Review} />
     <Route exact path="/booking" component={Booking} />
-    <Route exact path="/review" component={Review} />
+    {/* <Route exact path="/review" component={Review} /> */}
     <Route exact path='/Result/:id/:city' component={Result}/>
     <Route exact path='/session' component={Session}/>
     {/* <Route exact path='/Result' component={Result}/> */}

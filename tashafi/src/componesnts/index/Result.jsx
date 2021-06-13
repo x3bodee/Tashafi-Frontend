@@ -25,11 +25,10 @@ export default function Result(props) {
 
 // console.log(`city: ${city}, specialtyID: ${specialtyID}`)
 
-useEffect(async()=>{
-    await axios.post('http://localhost:4000/api/v1/booking/finddoctors/',{
+useEffect(()=>{
+  axios.post('http://localhost:4000/api/v1/booking/finddoctors/',{
     "city":city , 
     "specialty":specialtyID
-    
   })
   .then(data => { 
   let alldoctors=[]
