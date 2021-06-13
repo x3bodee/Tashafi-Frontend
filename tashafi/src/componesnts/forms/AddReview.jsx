@@ -11,11 +11,13 @@ const colors = {
     
 };
 
-export default function Review(props) {
+export default function AddReview(props) {
   const [user, setUser] = useState({});
     const [currentValue, setCurrentValue] = useState(0);
     const [hoverValue, setHoverValue] = useState(undefined);
     const stars = Array(5).fill(0)
+    
+
   
 
 
@@ -36,6 +38,7 @@ export default function Review(props) {
 
     const onSubmitHandler = (e) => {
       e.preventDefault()
+      
       console.log(user.comment)
       console.log(currentValue)
       console.log(props.doctor)
@@ -44,7 +47,7 @@ export default function Review(props) {
       axios.post("http://localhost:4000/api/v1/review/new",
           {
               "comment": user.comment,
-              "review_number": user.currentValue,
+              "review_number": currentValue,
              //here i must pass current user id 
               "patient": localStorage.UserID, 
               "doctor":props.doctor
@@ -64,6 +67,7 @@ export default function Review(props) {
               console.log(err)
           })
 
+          console.log("done")
   }
   
     return (
@@ -95,7 +99,9 @@ export default function Review(props) {
      
         <Form.Group controlId="exampleForm.ControlTextarea1">
                     <Form.Label></Form.Label>
-                   <Form.Control as="textarea" name="comment"   style={styles.textarea} placeholder="What's your experience?" rows={6}  onChange={(e) => changeUserHandler(e)}/>
+                   <Form.Control as="textarea" name="comment"   style={styles.textarea} placeholder="What's your experience?" rows={6}  onChange={(e) => changeUserHandler(e)}>
+                     
+                    </Form.Control>
                    </Form.Group>
 
       <button
@@ -105,7 +111,7 @@ export default function Review(props) {
       </button>
       
     </div>
-  );
+  
   </Form>
         </div>
     )
@@ -127,7 +133,7 @@ const styles = {
       padding: 10,
       margin: "20px 0",
       minHeight: 200,
-      width: 400
+      width: '80%'
     },
     button: {
         border: "1px solid #a9a9a9",

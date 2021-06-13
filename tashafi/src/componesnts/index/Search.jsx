@@ -21,7 +21,7 @@ export default function Search() {
 
 
   useEffect(()=>{
-    axios.get("http://localhost:4001/api/v1/specialty/specialties")
+    axios.get("http://localhost:4000/api/v1/specialty/specialties")
     .then(data => {      
       let array=[{name:'All Speciality',_id:'0'}]
       data.data.allSpecialties.forEach(element => {
