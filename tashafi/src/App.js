@@ -11,12 +11,8 @@ import Booking from './pages/forms/booking.page';
 import Review from './pages/forms/review.page';
 import Result from './componesnts/index/Result';
 import Session from './pages/forms/session.page';
-<<<<<<< HEAD
 import Doctor from './pages/doctor/Doctor.page';
 import Profile from './componesnts/profile/Profile'
-=======
-import Doctor from './pages/doctor/doctor.page';
->>>>>>> 81abef376bfcbeea7e139d96759081d1168491e9
 
 
 function App() {
