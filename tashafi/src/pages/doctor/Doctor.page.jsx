@@ -22,7 +22,6 @@ export default function Doctor(props) {
     const [reviewCurrentValue, setReviewCurrentValue] = useState([]);
 
     useEffect(() => {
-
         axios.get(`http://localhost:4000/api/v1/booking/doctorprofile/${id}`)
             .then(data => {
                 // console.log(data);
@@ -61,10 +60,10 @@ export default function Doctor(props) {
             {/* {console.log("user: %%%%%%%%%%%%%%%%%%%%%%%%%")} */}
             {/* {console.log(user)} */}
             {/* {console.log(currentValue)} */}
-            <Profile specialty={specialty} user={user} currentValue={currentValue} />
+            <Profile specialty={specialty} user={user} isLogin ={props.isLogin} currentValue={currentValue} />
             {/* {console.log(sessions)} */}
-            <Session sessions={sessions}></Session>
-            <Review  currentValue={reviewCurrentValue} doctor={user._id}/>
+            <Session isLogin ={props.isLogin} sessions={sessions}></Session>
+            <Review  currentValue={reviewCurrentValue} isLogin ={props.isLogin} doctor={user._id}/>
         </div>
     )
 }
