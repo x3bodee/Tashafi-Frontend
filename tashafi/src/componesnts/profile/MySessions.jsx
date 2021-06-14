@@ -4,64 +4,67 @@ import axios from 'axios'
 import '../../css/dashboard.css'
 import { useHistory } from "react-router-dom";
 
-export default function MySessions({user}) {
-    const [session,setSession] = useState({})
-    const [error,setError] = useState([{}])
+export default function MySessions({ user }) {
+  const [sessions, setSessions] = useState([])
+  const [error, setError] = useState([{}])
 
-    const history = useHistory();
+  const history = useHistory();
 
-    
-  useEffect(()=>{
+
+  useEffect(() => {
     axios.get(`http://localhost:4000/api/v1/session/show/${user._id}`)
-    .then(data => {
-        setSession(data.data.sessions)
+      .then(data => {
+        // setSession(data.data.sessions)
         console.log("Session data")
         console.log(data.data.sessions)
-    })
-    .catch(error => {
+        setSessions(data.data.sessions)
+      })
+      .catch(error => {
         setError(error.response.data)
-        
-    })
-} , [])
+
+      })
+  }, [])
 
 
 
 
-const onSubmit=(e)=>{
+  const onClickHandeler = (e) => {
     e.preventDefault()
-    history.push(`/session`)
-}   
-    return (
-        
-        <>
-        
-    <Button variant="primary" onClick={(e)=>onSubmit(e)}>ADD A NEW SESSION</Button>
+    history.push('/session')
+  }
 
-<div className="session">    
-  <Card.Header>All Sessions</Card.Header>
-  <Card>
-  <Card.Body>
-    <Card.Title>Special title treatment</Card.Title>
-    <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-  </Card>
-  <Card>
-  <Card.Body>
-    <Card.Title>Special title treatment</Card.Title>
-    <Card.Text>
-      With supporting text below as a natural lead-in to additional content.
-    </Card.Text>
-    <Button variant="primary">Go somewhere</Button>
-  </Card.Body>
-  </Card>
-  
-</div>
+  // const deleteHandeler = (e) => {
+  //   e.preventDefault()
+  //   axios.get(`http://localhost:4000/api/v1/session/show/${user._id}`)
+  // }
+
+  return (
+
+    <>
+
+    
+      <div className=" sessions">
 
 
+      <div className="session">
+      <Button className="mb-3 mt-2 fullwidth" variant="primary" onClick={(e) => onClickHandeler(e)}>ADD A NEW SESSION</Button>
+        <Card.Header>Sessions</Card.Header>
+        {sessions.map((ele)=>{
+          return (<Card>
+            <Card.Body>
+              <Card.Title>{ele.day} {ele.date}</Card.Title>
+              <Card.Text>
+                start { ele.start_time } ends { ele.end_time }
+              </Card.Text>
+              {/* <Button id={ele.session_id} onClick={(e) deleteHandeler(e)} variant="danger">Delete</Button> */}
+            </Card.Body>
+          </Card>)
+        })}
+      </div>
 
-        </>
-    )
+      </div>
+
+
+    </>
+  )
 }

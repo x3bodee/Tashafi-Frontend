@@ -1,11 +1,19 @@
+#root{
+    overflow:hidden;
+}
+
 .asidepage{
     display: flex;
     height: 100vh;
-    flex-wrap: nowrap;
-    flex-direction: row;
     align-content: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+}
 
+.asidepage_session{
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -13,13 +21,14 @@
     background-color: #323E42;
     width: 20%;
     height: 100%;
-    
 }
 
 .aside__main{
    width: auto;
    /* margin: 0 5% 0 5%; */
    padding-left: 25%;
+   overflow-y: scroll;
+   overflow-x:visible;
 }
 
 .aside__list{
@@ -104,12 +113,12 @@ background-color:#7954a1 ;
 .booking__container{
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-around;
     margin:1%;
     text-align: center;
     width: 100%;
-    margin-left: -25%;
+    margin-left: -5%;
 }
 
 
@@ -117,4 +126,22 @@ background-color:#7954a1 ;
     align-items: center;
     justify-content: center;
     margin:10px;
+}
+
+/* .sessions{
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    width: 60%;
+    margin-right:  55%; 
+} */
+
+.session{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -35%;
+    text-align:center
 }

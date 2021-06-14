@@ -3,7 +3,6 @@ import { Navbar , Container , Nav} from 'react-bootstrap';
 // import logo from '../../img/TashaFi.png'
 import {useHistory  } from 'react-router-dom';
 import '../../css/Nav.css';
-
 export default function NavBar(props) {
 
   const history = useHistory()
@@ -32,11 +31,6 @@ export default function NavBar(props) {
           </Nav>
           </Container>
         </Navbar>
-        
-        <div calssName="color-nav" >
-           Hi
-        </div>
-      
         </>
     )
 }
