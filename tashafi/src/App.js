@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
-import { BrowserRouter , Route ,Switch ,Redirect } from "react-router-dom"
+import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom"
 import { isExpired, decodeToken } from "react-jwt";
-import {useEffect, useState} from "react"
+import { useEffect, useState } from "react"
 import Home from './pages/index/home.page'
 import Login from './pages/forms/login.page';
 // import Login from './componesnts/forms/Login';
@@ -16,21 +16,21 @@ import Profile from './componesnts/profile/Profile'
 
 
 function App() {
-  const [user , setUser] = useState({})
-  const [isLogin , setIsLogin] = useState(false)
+  const [user, setUser] = useState({})
+  const [isLogin, setIsLogin] = useState(false)
 
 
- 
+
   // 
-  useEffect(()=> {
+  useEffect(() => {
     loginFunction()
-  } , [])
+  }, [])
 
-  const loginFunction = () =>{
+  const loginFunction = () => {
     console.log('inside login function')
     let token = localStorage.getItem("token")
     let decodeuser = decodeToken(token)
-    if (decodeuser?.user && !isExpired(token) ){
+    if (decodeuser?.user && !isExpired(token)) {
       setUser(decodeuser.user)
       setIsLogin(true)
     } else {
@@ -40,34 +40,34 @@ function App() {
     console.log('end of login function')
   }
 
-console.log(user)
+  console.log(user)
   return (
-      <BrowserRouter>
+    <BrowserRouter>
 
       {/* router  */}
       <Switch >
-    
-    <Route exact path="/" component={Home} />
-    <Route exact path="/login"
-      render={ () => <Login login={loginFunction}  />}  />
-    <Route exact path="/signup" component={Signup} />
-    <Route exact path="/booking/:id" component={Booking} />
-    <Route exact path="/review/:id" component={Review} />
-    <Route exact path="/booking" component={Booking} />
-    {/* <Route exact path="/review" component={Review} /> */}
-    <Route exact path='/Result/:id/:city' component={Result}/>
-    <Route exact path='/session' component={Session}/>
-    {/* <Route exact path='/Result' component={Result}/> */}
-    <Route exact path='/doctorp/:id' component={Doctor}/>
-    <Route exact path="/profile" render={() => isLogin==true ? <Profile user={user} /> : <Login login={loginFunction}  />} />
+
+        <Route exact path="/" component={Home} />
+        <Route exact path="/login"
+          render={() => <Login login={loginFunction} />} />
+        <Route exact path="/signup" component={Signup} />
+        <Route exact path="/booking/:id" component={Booking} />
+        <Route exact path="/review/:id" component={Review} />
+        <Route exact path="/booking" component={Booking} />
+        {/* <Route exact path="/review" component={Review} /> */}
+        <Route exact path='/Result/:id/:city' component={Result} />
+        <Route exact path='/session' component={Session} />
+        {/* <Route exact path='/Result' component={Result}/> */}
+        <Route exact path='/doctorp/:id' component={Doctor} />
+        <Route exact path="/profile" render={() => isLogin == true ? <Profile user={user} /> : <Login login={loginFunction} />} />
 
 
-    
-    {/* <Route exact path="/allmovie" component={Allmovie} />
+
+        {/* <Route exact path="/allmovie" component={Allmovie} />
     <Route exact path="/allmovie/:id" component={OneMovie} /> */}
-    
-    </Switch >
-    ​    </BrowserRouter>
+
+      </Switch >
+    </BrowserRouter>
 
   );
 }

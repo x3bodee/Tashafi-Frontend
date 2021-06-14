@@ -21,53 +21,53 @@ export default function MyBooking() {
                 // setBooking(data.data)
                 console.log("booking data")
                 console.log(data.data)
-                if(data.data.patient){
+                if (data.data.patient) {
                     setPatient(data.data.patient)
-                    let old =[];
-                    let neww =[];
-                    data.data.booking.forEach((ele)=>{
+                    let old = [];
+                    let neww = [];
+                    data.data.booking.forEach((ele) => {
                         console.log("ele")
                         console.log(ele)
-                        if(ele.status == false) neww.push( <Card>
+                        if (ele.status == false) neww.push(<Card>
                             <Card.Body id={ele.meeting.id}>
                                 <Card.Title>{ele.meeting.date.day} {ele.meeting.date.date}</Card.Title>
                                 <Card.Text>
-                                    you have a booking with Dr. {ele.doctor.Fullname}, {ele.doctor.specialty} start { ele.meeting.date.start_time } ends { ele.meeting.date.end_time }
+                                    you have a booking with Dr. {ele.doctor.Fullname}, {ele.doctor.specialty} start {ele.meeting.date.start_time} ends {ele.meeting.date.end_time}
                                 </Card.Text>
                                 <Card.Subtitle className="mb-1 text-muted">Contact : {ele.doctor.email} </Card.Subtitle>
                                 <Button id={ele.meeting.link} variant="primary">Go to call</Button>
                             </Card.Body>
                         </Card>)
-                        else old.push( <Card>
+                        else old.push(<Card>
                             <Card.Body id={ele.meeting.id}>
                                 <Card.Title>{ele.meeting.date.day} {ele.meeting.date.date}</Card.Title>
                                 <Card.Text>
-                                    you had a meeting with Dr. {ele.doctor.Fullname}, {ele.doctor.specialty} start { ele.meeting.date.start_time } ends { ele.meeting.date.end_time }
+                                    you had a meeting with Dr. {ele.doctor.Fullname}, {ele.doctor.specialty} start {ele.meeting.date.start_time} ends {ele.meeting.date.end_time}
                                 </Card.Text>
                                 <Card.Subtitle className="mb-1 text-muted">Contact : {ele.doctor.email} </Card.Subtitle>
                                 {/* <Button id={ele.meeting.link} variant="primary">Go to call</Button> */}
                             </Card.Body>
                         </Card>)
                     })
-                    
+
                     setUserType(false)
                     console.log("user is patient")
 
                     setOldBooking(old)
                     setNewBooking(neww)
-                } 
-                else if(data.data.doctor){
+                }
+                else if (data.data.doctor) {
                     setDoctor(data.data.doctor)
                     setUserType(true)
                     console.log("user is doctor")
-                    let old =[];
-                    let neww =[];
-                    data.data.booked.forEach((ele)=>{
-                        if(ele.status == false) neww.push(<Card>
+                    let old = [];
+                    let neww = [];
+                    data.data.booked.forEach((ele) => {
+                        if (ele.status == false) neww.push(<Card>
                             <Card.Body id={ele.meeting.id}>
                                 <Card.Title>{ele.meeting.date.day} {ele.meeting.date.date}</Card.Title>
                                 <Card.Text>
-                                    you have a meeting with {ele.patient.Fullname} start { ele.meeting.date.start_time } ends { ele.meeting.date.end_time }
+                                    you have a meeting with {ele.patient.Fullname} start {ele.meeting.date.start_time} ends {ele.meeting.date.end_time}
                                 </Card.Text>
                                 <Card.Subtitle className="mb-1 text-muted">Contact : {ele.patient.email} </Card.Subtitle>
                                 <Button id={ele.meeting.link} variant="primary">Go to call</Button>
@@ -77,7 +77,7 @@ export default function MyBooking() {
                             <Card.Body id={ele.meeting.id}>
                                 <Card.Title>{ele.meeting.date.day} {ele.meeting.date.date}</Card.Title>
                                 <Card.Text>
-                                    you had a meeting with {ele.patient.Fullname} start { ele.meeting.date.start_time } ends { ele.meeting.date.end_time }
+                                    you had a meeting with {ele.patient.Fullname} start {ele.meeting.date.start_time} ends {ele.meeting.date.end_time}
                                 </Card.Text>
                                 <Card.Subtitle className="mb-1 text-muted">Contact : {ele.patient.email} </Card.Subtitle>
                                 {/* <Button id={ele.meeting.link} variant="primary">Go to call</Button> */}
@@ -86,8 +86,8 @@ export default function MyBooking() {
                     })
                     setOldBooking(old)
                     setNewBooking(neww)
-                } 
-                
+                }
+
             })
             .catch(error => {
                 console.log(error)
@@ -102,12 +102,12 @@ export default function MyBooking() {
             <div className="booking__container">
                 <div className="furure__booking">
                     <Card.Header>Future bookings</Card.Header>
-                    {newBooking.length ? newBooking : <Card> <Card.Body > <Card.Title> No future bookings </Card.Title> </Card.Body> </Card> }
+                    {newBooking.length ? newBooking : <Card> <Card.Body > <Card.Title> No future bookings </Card.Title> </Card.Body> </Card>}
                 </div>
 
                 <div className="history__booking">
                     <Card.Header>Old Bookings</Card.Header>
-                    { oldBooking.length ? oldBooking: <Card> <Card.Body > <Card.Title> No old bookings </Card.Title> </Card.Body> </Card>}
+                    {oldBooking.length ? oldBooking : <Card> <Card.Body > <Card.Title> No old bookings </Card.Title> </Card.Body> </Card>}
                 </div>
             </div>
         </>
