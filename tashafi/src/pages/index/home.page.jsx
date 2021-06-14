@@ -4,10 +4,10 @@ import Main from '../../componesnts/index/Main'
 import Footer from '../../componesnts/index/Footer'
 
 
-export default function home() {
+export default function home(props) {
     return (
         <>
-        <NavBar />
+        <NavBar isLogin ={props.isLogin}   />
         <Main/> 
         <Footer />
        

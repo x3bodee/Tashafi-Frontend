@@ -18,8 +18,17 @@ export default function NavBar(props) {
           <Navbar.Brand  href="#home" > TASHAFI</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link   onClick = {()=> history.push('/')}>Home</Nav.Link>
-            <Nav.Link onClick = {()=> history.push('/signup')}>SignUp</Nav.Link>
-            <Nav.Link onClick = {()=> history.push('/login')}>SignIn</Nav.Link>
+            { !props.isLogin ?
+            <Nav.Link onClick = {()=> history.push('/signup')}>SignUp</Nav.Link>:
+            <Nav.Link onClick = {()=> history.push('/profile')}>Profile</Nav.Link>
+              }
+
+            { !props.isLogin ?
+             <Nav.Link onClick = {()=> history.push('/login')}>SignIn</Nav.Link>:
+             <Nav.Link onClick = {()=> history.push('/Logout')}>logout</Nav.Link>
+            
+            }
+           
           </Nav>
           </Container>
         </Navbar>
