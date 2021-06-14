@@ -6,7 +6,6 @@ import Session from '../../componesnts/forms/Session'
 export default function session() {
     return (
         <>
-       <NavBar/>
       
         <Session/>
        

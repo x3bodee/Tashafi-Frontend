@@ -7,7 +7,6 @@ import NavBar from '../../componesnts/index/NavBar'
 export default function signup() {
     return (
         <>
-        <NavBar/>
         <Signup/>
        
         <Footer />

@@ -74,7 +74,6 @@ export default function Result(props) {
 
   return (
     <>
-      <NavBar />
       <div class="Searchclass">
 
         <Search />

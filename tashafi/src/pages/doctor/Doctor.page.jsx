@@ -58,7 +58,6 @@ export default function Doctor(props) {
 
     return (
         <div>
-            <NavBar />
             {/* {console.log("user: %%%%%%%%%%%%%%%%%%%%%%%%%")} */}
             {/* {console.log(user)} */}
             {/* {console.log(currentValue)} */}
