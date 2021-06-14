@@ -45,6 +45,7 @@ export default function Review(props) {
                 </Row>
                 <Row className="rating mb-3">
                     <AddReview doctor={props.doctor}></AddReview>
+                   
                 </Row>
             </Container>
             </>

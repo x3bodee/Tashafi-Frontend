@@ -69,6 +69,7 @@ export default function Session(props) {
                             <Card.Subtitle className="mb-2 text-muted">Start: <span className="text">{date.start}</span></Card.Subtitle>
                             <Card.Subtitle className="mb-2 text-muted">End: <span className="text">{date.end}</span></Card.Subtitle>
                             <Button className="mt-2" id={date.session_id} variant="primary" onClick={(e) => handelItemClick(e)}>Book</Button>
+                            
                         </Card.Body>
                     </Card>
                 ))}

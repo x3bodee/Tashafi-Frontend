@@ -15,7 +15,6 @@ export default function NavBar({isLogin}) {
   const logOut = () => {
       localStorage.removeItem("token")
       localStorage.removeItem("UserID")
-
       history.push("/")
      } 
 console.log(history)

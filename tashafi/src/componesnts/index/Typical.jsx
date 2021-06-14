@@ -27,7 +27,7 @@ export default function Typicaltext(props) {
                 <Typical
                     loop={Infinity}
                     wrapper="span"
-                    steps={['doctor', 4000, 'dentist', 4000]}
+                    steps={['doctor', 4000, 'dentist', 4000,'Family medicine',4000,'Surgery',4000]}
                 //   steps={ [props.speciality] }
                 />
                 <br />
