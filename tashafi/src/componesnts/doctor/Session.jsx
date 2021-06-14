@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Button, Col, Container, Card, Row } from "react-bootstrap";
 import Carousel from "react-elastic-carousel";
+import { useHistory } from "react-router-dom"
 
 const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -13,6 +14,7 @@ const breakPoints = [
 export default function Session(props) {
     // const [date, setDate] = useState();
     const date = props.sessions;
+    const history = useHistory();
 
     // useEffect(() => {
     //     if (props.sessions) {
@@ -35,7 +37,8 @@ export default function Session(props) {
     // }, [])
 
     const handelItemClick = (e) => {
-        console.log(e.target)
+        console.log(e.target.id)
+        history.push('/booking/'+e.target.id)
     }
 
 //  datee.map( (ele) =>  {
