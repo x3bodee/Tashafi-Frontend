@@ -45,21 +45,23 @@ export default function MySessions({ user }) {
 
       <div className=" sessions">
 
-        <div className="session">
-          <Button className="mb-3 mt-2 fullwidth" variant="primary" onClick={(e) => onClickHandeler(e)}>ADD A NEW SESSION</Button>
-          <Card.Header>Sessions</Card.Header>
-          {sessions.map((ele) => {
-            return (<Card>
-              <Card.Body>
-                <Card.Title>{ele.day} {ele.date}</Card.Title>
-                <Card.Text>
-                  start {ele.start_time} ends {ele.end_time}
-                </Card.Text>
-                {/* <Button id={ele.session_id} onClick={(e) deleteHandeler(e)} variant="danger">Delete</Button> */}
-              </Card.Body>
-            </Card>)
-          })}
-        </div>
+
+      <div className="session">
+      <Button className="mb-3 mt-2 fullwidth" variant="primary" onClick={(e) => onClickHandeler(e)}>ADD A NEW SESSION</Button>
+        <Card.Header>Sessions</Card.Header>
+        {sessions.map((ele)=>{
+          return (<Card>
+            <Card.Body>
+              <Card.Title>{ele.day} {ele.date}</Card.Title>
+              <Card.Text>
+                start { ele.start } ends { ele.end }
+              </Card.Text>
+              {/* <Button id={ele.session_id} onClick={(e) deleteHandeler(e)} variant="danger">Delete</Button> */}
+            </Card.Body>
+          </Card>)
+        })}
+      </div>
+
 
       </div>
 

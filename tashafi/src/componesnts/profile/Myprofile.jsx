@@ -6,6 +6,8 @@ import axios from "axios"
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import '../../css/dashboard.css'
 import { useHistory } from "react-router-dom"
+import Alert from 'react-bootstrap/Alert'
+
 
 export default function Myprofile({ user }) {
     const [isDeleted, setIsDeleted] = useState(false)
@@ -37,6 +39,7 @@ export default function Myprofile({ user }) {
                 console.log(data)
             }).catch(error => {
 
+
                 console.log(error)
             })
     }
@@ -63,6 +66,7 @@ export default function Myprofile({ user }) {
 
     return (
         <>
+
 
             <div className="myProfile__container">
                 <Container className="mt-2" fluid>
