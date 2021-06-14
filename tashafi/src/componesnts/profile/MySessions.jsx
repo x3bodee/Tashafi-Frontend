@@ -42,7 +42,7 @@ export default function MySessions({ user }) {
 
     <>
 
-    
+
       <div className=" sessions">
 
 
@@ -61,6 +61,7 @@ export default function MySessions({ user }) {
           </Card>)
         })}
       </div>
+
 
       </div>
 

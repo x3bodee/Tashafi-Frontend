@@ -10,7 +10,7 @@ import { useHistory } from "react-router-dom"
 
 export default function Session() {
     const [user, setUser] = useState({});
-    
+    const history = useHistory();
     const changeUserHandler = ({ target: { name, value } }) => setUser({ ...user, [name]: value })
 
     const onSubmitHandler = (e) => {
@@ -29,6 +29,7 @@ export default function Session() {
 
                 console.log("data :")
                 console.log(data)
+                history.push("/profile")
                
 
             })
@@ -43,6 +44,7 @@ export default function Session() {
             <Container className="mt-5">
                 <Row>
                     <Col lg={3} md={6} sm={12} className="text-center mt-5 p-3">
+                        
                         <h4>Create a New Session </h4>
                         <br/> <br/>
                         {/* <img className="icon-img" src={loginIcon} alt="icon" /> */}

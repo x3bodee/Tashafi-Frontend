@@ -1,12 +1,11 @@
 import React from 'react'
-import {AssignmentTurnedIn , AssignmentInd  , Devices ,RateReview} from '@material-ui/icons'
+import { AssignmentTurnedIn, AssignmentInd, Devices, RateReview } from '@material-ui/icons'
 
-export  const Asideitems =[
-{
-    title:"My Profile",
-    icon:<AssignmentInd/> ,
-    itemNum:"1"
-
+export const Asideitems = [
+    {
+        title: "My Profile",
+        icon: <AssignmentInd />,
+        itemNum: "1"
 },
 {
     title:"My Booking",
@@ -19,7 +18,6 @@ export  const Asideitems =[
     itemNum:"3"
 }
 
-]  
-   
+
 
 

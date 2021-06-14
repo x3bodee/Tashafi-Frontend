@@ -1,13 +1,16 @@
-import React, {Component} from 'react'; 
-import { Navbar , Container , Nav} from 'react-bootstrap';
+import React, { Component } from 'react';
+import { Navbar, Container, Nav } from 'react-bootstrap';
 // import logo from '../../img/TashaFi.png'
+
 import {useHistory  } from 'react-router-dom';
 
 export default function NavBar({isLogin}) {
 
+
   const history = useHistory()
- 
+
   const [value, setValue] = React.useState(0);
+
 
   const logOut = () => {
       localStorage.removeItem("token")
@@ -37,10 +40,10 @@ console.log(history)
       }
 
           </Nav>
-          </Container>
-        </Navbar>
-        </>
-    )
+        </Container>
+      </Navbar>
+    </>
+  )
 }
 
 
