@@ -49,24 +49,35 @@ console.log(user)
       <Navbar isLogin={isLogin}/>
       {/* router  */}
       <Switch >
-    <Route exact path="/" component={Home} isLogin={isLogin}  user={user}/>
-    <Route exact path="/login"
-      render={ () => <Login login={loginFunction}  />}  />
-    <Route exact path="/signup" component={Signup} />
-    <Route exact path="/booking/:id" component={Booking} />
-    <Route exact path="/review/:id" component={Review} />
-    <Route exact path="/booking" component={Booking} />
-    {/* <Route exact path="/review" component={Review} /> */}
-    <Route exact path='/Result/:id/:city' component={Result}/>
-    <Route exact path='/session' component={Session}/>
-    {/* <Route exact path='/Result' component={Result}/> */}
-    <Route exact path='/doctorp/:id' component={Doctor}/>
-    <Route exact path="/profile" render={() => isLogin==true ? <Profile user={user} /> : <Login login={loginFunction}  />} />
-
 
     
-    {/* <Route exact path="/allmovie" component={Allmovie} />
-    <Route exact path="/allmovie/:id" component={OneMovie} /> */}
+    <Route exact path="/" component={Home} isLogin ={isLogin}  />
+    <Route exact path="/signup" component={Signup} isLogin ={isLogin}  />
+
+
+    <Route exact path="/login"
+      render={ () =>  isLogin==true ? <Home user={user} /> : <Login login={loginFunction} isLogin ={isLogin}  />}  />
+
+    <Route exact path="/profile" 
+    render={() => isLogin==true ? <Profile user={user} /> : <Login login={loginFunction}  />} />
+    <Route exact path="/booking/:id" 
+    render={() => isLogin==true ? <Booking user={user} /> : <Login login={loginFunction}  />}  />
+    
+    <Route exact path='/session'  
+    render={() => isLogin==true ? <Session user={user} /> : <Login login={loginFunction}  />}  />
+    
+    <Route exact path="/review/:id" 
+     render={() => isLogin==true ? <Review user={user} /> : <Login login={loginFunction}  />} />
+
+    <Route exact path='/Result/:id/:city' component={Result} isLogin ={isLogin} />
+    {/* <Route exact path='/Result' component={Result}/> */}
+    <Route exact path='/doctorp/:id' component={Doctor} isLogin ={isLogin} />
+    
+
+   {/* <Route exact path="/booking" component={Booking} isLogin ={isLogin} /> */}
+    {/* <Route exact path="/review" component={Review} /> */}
+
+  
     
     </Switch >
     ​    </BrowserRouter>

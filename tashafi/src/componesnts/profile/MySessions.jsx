@@ -54,7 +54,7 @@ export default function MySessions({ user }) {
             <Card.Body>
               <Card.Title>{ele.day} {ele.date}</Card.Title>
               <Card.Text>
-                start { ele.start_time } ends { ele.end_time }
+                start { ele.start } ends { ele.end }
               </Card.Text>
               {/* <Button id={ele.session_id} onClick={(e) deleteHandeler(e)} variant="danger">Delete</Button> */}
             </Card.Body>

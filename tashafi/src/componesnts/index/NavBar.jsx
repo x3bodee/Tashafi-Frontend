@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Navbar , Container , Nav} from 'react-bootstrap';
 // import logo from '../../img/TashaFi.png'
 import {useHistory  } from 'react-router-dom';
-import '../../css/Nav.css';
+
 export default function NavBar({isLogin}) {
 
   const history = useHistory()
@@ -23,6 +23,7 @@ console.log(history)
           <Container>
           <Navbar.Brand  href="#home" > TASHAFI</Navbar.Brand>
           <Nav className="me-auto">
+
             <Nav.Link onClick = {()=> history.push('/')}>Home</Nav.Link>
             {!isLogin? <Nav.Link onClick = {()=> history.push('/signup')}>SignUp</Nav.Link>
             :
@@ -34,6 +35,7 @@ console.log(history)
             <Nav.Link onClick = {()=> logOut()}>logOut</Nav.Link>
 
       }
+
           </Nav>
           </Container>
         </Navbar>

@@ -6,11 +6,13 @@ import axios from "axios"
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import '../../css/dashboard.css'
 import { useHistory } from "react-router-dom"
+import Alert from 'react-bootstrap/Alert'
 
 export default function Myprofile({user}) {
 const [isDeleted, setIsDeleted] = useState(false)
 const [User, setUser] = useState({});
 const history = useHistory();
+const [alert, setAlert] = useState("");
 
 useEffect(async()=>{
     setUser(user)
@@ -35,8 +37,9 @@ axios.put(`http://localhost:4000/api/v1/auth/update/${user._id}`, User)
 .then(data => {
   console.log("it should be updated")
   console.log(data)
-}).catch(error => {
 
+}).catch(error => {
+   
   console.log(error)
 })
 }
@@ -87,7 +90,9 @@ console.log(`user id is: ${user._id}`)
             <Form.Group controlId="formBasicEmail">
                 <Form.Control type="email" placeholder="Email" name="email" onChange={(e) => userChangeHandler(e)} value={User.email} />
             </Form.Group>
-
+            <Form.Group controlId="formBasicEmail">
+                <Form.Control type="password" placeholder="pwassowd" name="password" onChange={(e) => userChangeHandler(e)} value={User.password} />
+            </Form.Group>
          
 
                 <Form.Label>Gender</Form.Label>
