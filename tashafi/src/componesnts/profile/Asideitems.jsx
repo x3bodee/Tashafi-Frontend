@@ -17,7 +17,7 @@ export const Asideitems = [
     icon:<Devices/>,
     itemNum:"3"
 }
-
+]
 
 
 
