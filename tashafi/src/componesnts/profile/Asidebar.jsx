@@ -11,9 +11,6 @@ export default function Asidebar() {
                         <li 
                         key={key}
                         className="aside__item"
-                        // onClick ={()=>{
-                        //     window.location.pathname = item.render
-                        // }}
                         >
                             
                             <div id="aside__item__icon">{item.icon}</div>
