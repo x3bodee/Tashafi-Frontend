@@ -4,10 +4,11 @@ import Booking from '../../componesnts/forms/Booking'
 
 
 export default function booking(props) {
+    const id = props.match.params.id;
+    console.log(id);
     return (
         <>
-     
-        <Booking meeting_id={props.match.params.id}/>
+        <Booking meeting_id={id}/>
         </>
     )
 }

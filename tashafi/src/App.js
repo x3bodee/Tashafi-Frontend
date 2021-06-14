@@ -62,8 +62,8 @@ function App() {
 
     <Route exact path="/profile" 
     render={() => isLogin==true ? <Profile user={user} /> : <Login login={loginFunction}  />} />
-    <Route exact path="/booking/:id" 
-    render={() => isLogin==true ? <Booking user={user} /> : <Login login={loginFunction}  />}  />
+    {/* <Route exact path="/booking/:id" 
+     render={() => isLogin==true ? <Booking user={user} /> : <Login login={loginFunction}  />}  /> */}
     
     <Route exact path='/session'  
     render={() => isLogin==true ? <Session user={user} /> : <Login login={loginFunction}  />}  />
@@ -75,6 +75,7 @@ function App() {
     <Route exact path='/Result/:id/:city' component={Result} isLogin ={isLogin} />
     {/* <Route exact path='/Result' component={Result}/> */}
     <Route exact path='/doctorp/:id' component={Doctor} isLogin ={isLogin} />
+    <Route exact path='/booking/:id' component={Booking} isLogin ={isLogin} />
     
 
    {/* <Route exact path="/booking" component={Booking} isLogin ={isLogin} /> */}

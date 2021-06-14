@@ -5,10 +5,14 @@ import '../../css/booking.css';
 import '../../css/Login.css';
 import loginIcon from '../../img/user.svg'
 import { useParams } from 'react-router-dom';
+import Alert from 'react-bootstrap/Alert'
+import { useHistory } from "react-router-dom"
 
 
 export default function Booking(props) {
     const [user, setUser] = useState({});
+    const history = useHistory();
+    // const [alert, setAlert] = useState({});
     console.log(props.status)
     const changeUserHandler = ({ target: { name, value } }) => setUser({ ...user, [name]: value })
 
@@ -28,11 +32,17 @@ export default function Booking(props) {
 
                 console.log("data :")
                 console.log(data)
-               
+                // setAlert(<Alert transition="Fade" variant={"success"}>
+                //             Booking is Done
+                // </Alert>)
+                history.push("/")
 
             })
             .catch(err =>{
                 console.log(err)
+                // setAlert(<Alert transition="Fade" variant={"danger"}>
+                //     erorr in add booking
+                // </Alert>)
             })
 
     }
@@ -45,7 +55,7 @@ export default function Booking(props) {
         <>
        
             <Container >
-           
+            {/* {alert} */}
                 <div class="gray-container">
                 {/* <img className="icon-img" src={loginIcon} alt="icon" /> */}
                 <p> </p>
