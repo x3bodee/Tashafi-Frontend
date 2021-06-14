@@ -5,15 +5,30 @@
     padding: 10px;
 }
 
-.main__card{
-display: row;
-align-items: center;
-justify-content: center;
+.Searchclass{
+ display: flex;
+ flex-direction: row;
+ justify-content: center;
 text-align: center;
+align-items: center;
+padding-top: 5%;
+padding-left: 5%;
+
+}
+
+.Cardclass{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-evenly;
+   text-align: center;
+   align-items: center;
+  
 
 }
 
 .img__card__container{
+    
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -26,4 +41,6 @@ text-align: center;
     align-items: center;
     justify-content: center;
     text-align: center;
+    color: #323E42    ;
 }
+

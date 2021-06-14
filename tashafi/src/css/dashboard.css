@@ -1,14 +1,19 @@
 #root{
     overflow:hidden;
 }
+
 .asidepage{
     display: flex;
     height: 100vh;
-    flex-wrap: nowrap;
-    flex-direction: row;
     align-content: center;
-    justify-content: flex-start;
+    justify-content: space-between;
+}
 
+.asidepage_session{
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 
@@ -113,7 +118,7 @@ background-color:#7954a1 ;
     margin:1%;
     text-align: center;
     width: 100%;
-    margin-left: -25%;
+    margin-left: -5%;
 }
 
 
@@ -121,4 +126,22 @@ background-color:#7954a1 ;
     align-items: center;
     justify-content: center;
     margin:10px;
+}
+
+/* .sessions{
+    display: flex;
+    height: 100vh;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    width: 60%;
+    margin-right:  55%; 
+} */
+
+.session{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-left: -35%;
+    text-align:center
 }

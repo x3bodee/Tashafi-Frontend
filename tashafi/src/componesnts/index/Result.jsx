@@ -2,10 +2,12 @@ import React , {useEffect,useState} from 'react'
 import Card from "react-bootstrap/Card";
 import {Alert ,Toast} from 'react-bootstrap'
 import MainImg from '../../img/doctor-character.jpg' 
+import NavBar from '../../componesnts/index/NavBar'
 import '../../css/result.css'
 import axios from 'axios'
 import Search from './Search'
-
+import { FaStar, FaFemale, FaMale } from "react-icons/fa";
+import Footer from '../../componesnts/index/Footer'
 
 export default function Result(props) {
 
@@ -46,16 +48,20 @@ useEffect(()=>{
     console.log(doctor)
 const doctors=doctor.map((item)=>{
   
-    return <a href={`/doctorp/${item._id}`}> <Card border="none" class="main__card" style={{ width: '40rem' , height:'20rem' , marginLeft:"25%"}}>
-    <Card.Header style={{background:'#7954A1' , outline:'none'}}>Header </Card.Header>
+  
+    return <a href={`/doctorp/${item._id}`}> 
+
+    <Card      border="none" class="main__card"  style={{ width: '35rem' , height:'20rem' , marginLeft:"1%"}}>
+    <Card.Header style={{background:'#7954A1' , outline:'none'}}> <br/> </Card.Header>
 
         <div class='img__card__container'>
         <img id="img__card"src={MainImg} alt="" />
       </div>
         <div class="card__info"> 
              <Card.Body> 
-                  <Card.Title> {item.Fname} {item.Lname} </Card.Title>
+                   <Card.Title> {item.Fname} {item.Lname}  , {item.gender=="male" ?  <FaMale /> : <FaFemale />}</Card.Title>
                   {/* <Card.Text>{item.specialty.name} </Card.Text>  */}
+                 <Card.Title>     </Card.Title>
               </Card.Body> 
         </div>
         </Card>
@@ -68,13 +74,19 @@ const doctors=doctor.map((item)=>{
 
     return (
               <>
-                     <Search/> 
-                    <div style={{padding:'2%' , margin:"0px" , textAlign:'center'}}>
+              <NavBar />
+              <div class = "Searchclass">
+
+              <Search /> 
+              </div>
+                    <div class="Cardclass" style={{padding:'4%' , margin:"0px" , textAlign:'center'}}
+>
   
                                   {doctors}
-          
-        
                     </div>
+             
+             <Footer/>
+                    
 </>
     )
 

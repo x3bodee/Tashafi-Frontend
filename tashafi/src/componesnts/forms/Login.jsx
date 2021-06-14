@@ -60,7 +60,7 @@ export default function Login(props) {
                                 <Form.Control type="password" placeholder="Password" name="password" onChange={(e) => changeUserHandler(e)} />
                             </Form.Group>
 
-                            <Button className="btn-colorr" variant="  primary btn-block" type="submit">Login</Button>
+                            <Button className="btn-colorr" variant=" btn-block" type="submit">Login</Button>
 
                             {/* <div className="text-left mt-3">
                                 <a href="#"><small className="reset">Password Reset</small></a> II
@@ -75,5 +75,5 @@ export default function Login(props) {
                 </Row>
             </Container>
         </>
-    );
-};
+  
+     ) }
