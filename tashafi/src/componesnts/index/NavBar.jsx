@@ -1,10 +1,8 @@
 import React, {Component} from 'react'; 
 import { Navbar , Container , Nav} from 'react-bootstrap';
 // import logo from '../../img/TashaFi.png'
-import {useHistory  } from 'react-router-dom'
-import uiImg from '../../img/Tlogo.png';
-import '../../css/nav.css'
-
+import {useHistory  } from 'react-router-dom';
+import '../../css/Nav.css';
 export default function NavBar(props) {
 
   const history = useHistory()
@@ -13,9 +11,10 @@ export default function NavBar(props) {
 
     return (
         <>
-        <Navbar>
+       
+        <Navbar calssName="color-nav"  variant="light">
           <Container>
-          <Navbar.Brand href="#home"> TashaFI</Navbar.Brand>
+          <Navbar.Brand  href="#home" > TASHAFI</Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link   onClick = {()=> history.push('/')}>Home</Nav.Link>
             <Nav.Link onClick = {()=> history.push('/signup')}>SignUp</Nav.Link>
@@ -23,7 +22,8 @@ export default function NavBar(props) {
           </Nav>
           </Container>
         </Navbar>
-
         </>
     )
 }
+
+

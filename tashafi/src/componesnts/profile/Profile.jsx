@@ -40,7 +40,6 @@ export default function Profile({ user }) {
                                         key={key}
                                         className="aside__item"
                                     >
-
                                         <div id="aside__item__icon">{item.icon}</div>
                                         <div name={item.title} onClick={(e)=>{onClickHandeler(e)}} id="aside__item__title">{item.title}</div>
                                     </li>
@@ -48,6 +47,7 @@ export default function Profile({ user }) {
                             })}
                         </ul>
                     </div>
+
 
                     <div className="aside__main">
                         
