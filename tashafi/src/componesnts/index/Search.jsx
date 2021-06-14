@@ -1,11 +1,11 @@
 import React , {useEffect  , useState} from 'react'
 import {InputGroup ,Dropdown ,DropdownButton ,FormControl , Button , Form , Alert ,Toast} from 'react-bootstrap';
-import axios from 'axios'
 import { Route } from "react-router-dom"
 import { useHistory } from "react-router-dom";
 
-export default function Search() {
-  const [speciality , setSpeciality] = useState([''])
+export default function Search(props) {
+  // const [speciality , setSpeciality] = useState([''])
+  // const speciality2= props.specialit
   const [search , setSearch] = useState("")
   const [selected , setSelected] = useState({name:"speciality" , id:null})
   const [alert , setAlert] = useState('')
@@ -14,24 +14,16 @@ export default function Search() {
 
   const history = useHistory();
 
+//   useEffect(()=>{
+//     console.log("speciality in search")
+//     console.log(props.specialit)
 
-
-  
-
-
-
-  useEffect(()=>{
-    axios.get("http://localhost:4000/api/v1/specialty/specialties")
-    .then(data => {      
-      let array=[{name:'All Speciality',_id:'0'}]
-      data.data.allSpecialties.forEach(element => {
-        array.push(element)
-      });
-      console.log(array)
-      setSpeciality(array)
-    })
-    .catch(error => console.error(error))
-    } , [])
+//     let specialties = props.specialit.map((item)=>{
+//       return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
+//     })
+//     console.log(specialties)
+//     setSpeciality(specialties)
+// },[])
 
     // 
     const changeSearchHandler = ({target : {name , value}}) => {
@@ -54,77 +46,35 @@ export default function Search() {
       history.push(`/result/${selected.id}/${search.city}`)
 
 // 1 - if select._id == null then create alert box
-    if(selected.id == null){
+    if(selected.id == null || search.city==undefined){
       setAlert(
         
         <Alert 
         variant="danger"
         >
-          you must chose one of the specility that's available
+          messingData
       </Alert>
       
       )
       setShow(true)
       
         }
-// // 2 - else if select._id == "0" and search !='' then axios call for all doctors in this city
-if(!selected.id && !search){
-  setAlert(
-    <Alert 
-    variant="danger"
-    >
-the form is empty you must fill atleast one of the input to search
-  </Alert>
-  
-  )
-  setShow(true)
-  
-    }
 
-// 4 - else if select._id 1= "0" and search !=''then axios call with specialty and city
-    else if(!selected.id=='0' && !search==''){
-        setAlert(
-          <Alert 
-          variant="success"
-          >
-            doctors has been found
-        </Alert>
-        )
-        setShow(true)
-      }
-      
-      
 
     }
-
-
-    
-
-
-
-    
-
-
-
-
-  const specialties = speciality.map((item)=>{
-    return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
-  })
-
-
-  
+  // const specialties = speciality.map((item)=>{
+  //   return  <Dropdown.Item href="#" eventKey={`${item.name} ${item._id}`} > {item.name} </Dropdown.Item>
+  // })
 
     return (
-      
         <>
-        
     <Form
     onSubmit={(e)=>onSubmit(e)}
   >
 <Toast onClose={() => setShow(false)} show={show} delay={4000} autohide >
 {alert}
 </Toast>
-    <InputGroup className="mb-3  search" size="lg"   > 
+    <InputGroup className="mb-3  search" size="lg" > 
     <DropdownButton
       as={InputGroup.Prepend}
       variant="outline-secondary"
@@ -136,7 +86,7 @@ the form is empty you must fill atleast one of the input to search
       
     >
       
-      {specialties}
+      {props.speciality}
     </DropdownButton>
     <FormControl className="form-control "
       placeholder=" City"

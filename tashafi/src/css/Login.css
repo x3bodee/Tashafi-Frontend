@@ -11,3 +11,20 @@
 .reset{
     color: black;
 }
+
+.btn-colorr{
+    background-color: #C55FFC    !important;
+    color: white!important;
+}
+
+.opt{
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+}
+
+.fullwidth{
+    width: 100%;
+}

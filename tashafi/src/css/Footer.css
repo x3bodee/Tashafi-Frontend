@@ -1,0 +1,19 @@
+
+
+.footer{
+      
+   
+    background-color: #EFDCF9    ;
+    /* position:relative;
+    bottom:0;
+    width:100%;
+    height:60px;   Height of the footer */
+   
+
+}
+
+.text{
+    color: #323E42    ;
+    text-align: center;
+    padding-top: 14px;
+}
