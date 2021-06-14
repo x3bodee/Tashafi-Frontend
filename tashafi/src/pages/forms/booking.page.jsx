@@ -6,7 +6,6 @@ import Booking from '../../componesnts/forms/Booking'
 export default function booking(props) {
     return (
         <>
-       <NavBar/>
      
         <Booking meeting_id={props.match.params.id}/>
         </>
