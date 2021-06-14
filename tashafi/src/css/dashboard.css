@@ -1,12 +1,14 @@
-#root{
+/* #root{
     overflow:hidden;
-}
+} */
 
 .asidepage{
     display: flex;
     height: 100vh;
     align-content: center;
-    justify-content: space-between;
+    /* justify-content: space-between; */
+    overflow-y: scroll;
+   overflow-x:visible;
 }
 
 .asidepage_session{
@@ -23,13 +25,13 @@
     height: 100%;
 }
 
-.aside__main{
-   width: auto;
-   /* margin: 0 5% 0 5%; */
-   padding-left: 25%;
-   overflow-y: scroll;
+/* .aside__main{
+ width: auto;
+    margin: 0 5% 0 5%; 
+   padding-left: 25%; 
+ overflow-y: scroll;
    overflow-x:visible;
-}
+} */
 
 .aside__list{
     width: 100%;
@@ -104,9 +106,14 @@ background-color:#7954a1 ;
 
 .row{
     width: 100%;
+    display: flex;
+    align-items: center;
+    padding-right: 10%;
 }
 .myProfile__container{
     width: 100%;
+  
+    
 }
 
 
@@ -114,11 +121,12 @@ background-color:#7954a1 ;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    justify-content: space-around;
+    /* justify-content: space-around; */
     margin:1%;
     text-align: center;
     width: 100%;
     margin-left: -5%;
+    padding-left: 40%;
 }
 
 
@@ -138,10 +146,13 @@ background-color:#7954a1 ;
     margin-right:  55%; 
 } */
 
-.session{
+.sessions{
+ 
     width: 100%;
     display: flex;
     flex-direction: column;
-    margin-left: -35%;
-    text-align:center
+    margin-left: -250%;
+    text-align:center;
+    align-items: center;
+  
 }

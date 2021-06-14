@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { Navbar , Container , Nav} from 'react-bootstrap';
 // import logo from '../../img/TashaFi.png'
 import {useHistory  } from 'react-router-dom';
-import '../../css/Nav.css';
+// import '../../css/nav.css';
 export default function NavBar(props) {
 
   const history = useHistory()
