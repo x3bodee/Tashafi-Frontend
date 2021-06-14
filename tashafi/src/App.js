@@ -13,6 +13,7 @@ import Result from './componesnts/index/Result';
 import Session from './pages/forms/session.page';
 import Doctor from './pages/doctor/Doctor.page';
 import Profile from './componesnts/profile/Profile'
+import Navbar from './componesnts/index/NavBar'
 
 
 function App() {
@@ -42,13 +43,17 @@ function App() {
 
 console.log(user)
   return (
+    <>
+    
       <BrowserRouter>
-
+      <Navbar isLogin={isLogin}/>
       {/* router  */}
       <Switch >
+
     
     <Route exact path="/" component={Home} isLogin ={isLogin}  />
     <Route exact path="/signup" component={Signup} isLogin ={isLogin}  />
+
 
     <Route exact path="/login"
       render={ () =>  isLogin==true ? <Home user={user} /> : <Login login={loginFunction} isLogin ={isLogin}  />}  />
@@ -76,7 +81,7 @@ console.log(user)
     
     </Switch >
     ​    </BrowserRouter>
-
+</>
   );
 }
 
