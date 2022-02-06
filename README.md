@@ -76,4 +76,4 @@
 * Integrating our webiste with a video call API .
 
 ## link to Tashafi backed repo :
-https://git.generalassemb.ly/x3bodee/Tashafi-Backend/blob/master/README.md 
+https://github.com/x3bodee/Tashafi-Backend
